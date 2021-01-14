@@ -413,6 +413,11 @@
         /* Body END */
         /* footer START */
         
+        footer ul {
+            padding: 10px;
+            margin: 0px;
+        }
+        
         ul.social0media {
             margin: auto;
             width: fit-content;
@@ -429,6 +434,12 @@
         
         footer .social0media a {
             font-size: 17px;
+        }
+        
+        ul.payments li img {
+            width: unset!important;
+            max-width: unset!important;
+            height: 18px;
         }
         /* footer END */
         /* Login START */
