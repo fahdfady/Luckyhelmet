@@ -54,3 +54,19 @@ $(function () {
         $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
 });
+// swiperjs
+var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    loop: true,
+    spaceBetween: 30,
+    // autoplay: {
+    //     delay: 2500,
+    //     disableOnInteraction: false,
+    // },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+});
+// swiperjs
