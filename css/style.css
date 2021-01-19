@@ -61,6 +61,11 @@
             list-style: none;
             display: flex;
         }
+        
+        img {
+            pointer-events: none;
+            user-select: none;
+        }
         /* essentials END */
         /* nav START */
         
@@ -147,7 +152,7 @@
         /* Body START */
         
         #home .banner {
-            background: url(../img/banners/banner.jpg);
+            background: url(../img/banners/banner3.jpg);
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
