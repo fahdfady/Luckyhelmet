@@ -6,7 +6,7 @@
 
     <title>Lucky Helmet (Store)</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+    <link rel="shortcut icon" type="image/png" href="img/logo.png">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
@@ -101,26 +101,31 @@
                 <nav>
                     <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
 
-                        <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab"
-                            aria-controls="nav-home" aria-selected="true">
+                        <a class="nav-link active" id="nav-desktop-tab" data-bs-toggle="tab" href="#nav-desktop"
+                            role="tab" aria-controls="nav-desktop" aria-selected="true">
 
                             <i class="fas fa-desktop"></i>
 
                         </a>
+                        <a class="nav-link" id="nav-mobile-tab" data-bs-toggle="tab" href="#nav-mobile" role="tab"
+                            aria-controls="nav-mobile" aria-selected="false">
 
-                        <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab"
-                            aria-controls="nav-profile" aria-selected="false">
+                            <i class="fas fa-mobile-alt"></i>
+
+                        </a>
+                        <a class="nav-link" id="nav-playstation-tab" data-bs-toggle="tab" href="#nav-playstation"
+                            role="tab" aria-controls="nav-playstation" aria-selected="false">
 
                             <i class="fab fa-playstation"></i>
 
                         </a>
-
-                        <a class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" href="#nav-contact" role="tab"
-                            aria-controls="nav-contact" aria-selected="false">
+                        <a class="nav-link" id="nav-xbox-tab" data-bs-toggle="tab" href="#nav-xbox" role="tab"
+                            aria-controls="nav-xbox" aria-selected="false">
 
                             <i class="fab fa-xbox"></i>
 
                         </a>
+
                     </div>
                     <div class="container">
 
@@ -132,21 +137,23 @@
                             </div>
                         </form>
                         <div class="mb-3 price-filter">
-                            <label for="customRange3" class="form-label">100 EGP</label>
-                            <label for="customRange3" class="form-label">500 EGP</label>
-                            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                            <label for="customRange3" class="form-label">50 EGP</label>
+                            <label for="customRange3" class="form-label">1200 EGP</label>
+                            <input type="range" class="form-range" min="0" max="5" step="0.2" id="customRange3">
                         </div>
                     </div>
                 </nav>
             </div>
 
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                <div class="tab-pane fade show active" id="nav-desktop" role="tabpanel"
+                    aria-labelledby="nav-desktop-tab">
                     <div class="container">
                         <div class="row">
                             <div class="col-6 col-md-4 col-lg-3">
                                 <div class="card">
-                                    <img src="img/products/100le_2.png" alt="">
+                                    <img src="img/products/100le_2.jpg" alt="">
 
                                     <div class="card-body">
                                         <div class="cardcontainer">
@@ -167,16 +174,20 @@
                                                 التحويل فودافون كاش ! 💱
                                             </p>
                                         </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
+
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 col-md-4 col-lg-3">
                                 <div class="card">
-                                    <img src="img/products/season2acc_1.png" alt="">
+                                    <img src="img/products/season2acc_1.jpg" alt="">
 
                                     <div class="card-body">
                                         <div class="cardcontainer">
@@ -195,16 +206,19 @@
                                                 التحويل فودافون كاش ! 💱[]
                                             </p>
                                         </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 col-md-4 col-lg-3">
                                 <div class="card">
-                                    <img src="img/products/200le_1.png" alt="">
+                                    <img src="img/products/200le_1.jpg" alt="">
 
                                     <div class="card-body">
                                         <div class="cardcontainer">
@@ -224,16 +238,19 @@
                                                 التحويل فودافون كاش ! 💱
                                             </p>
                                         </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 col-md-4 col-lg-3">
                                 <div class="card">
-                                    <img src="img/products/913244366_1.png" alt="">
+                                    <img src="img/products/913244366_1.jpg" alt="">
 
                                     <div class="card-body">
                                         <div class="cardcontainer">
@@ -249,104 +266,27 @@
                                                 التحويل فودافون كاش ! 💱
                                             </p>
                                         </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="tab-pane fade" id="nav-mobile" role="tabpanel" aria-labelledby="nav-mobile-tab">
                     <div class="container">
                         <div class="row">
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="card">
-                                    <img src="img/products/season2acc_1.png" alt="">
 
-                                    <div class="card-body">
-                                        <div class="cardcontainer">
-                                            <h5 class="card-title">
-                                                حساب عشوائي السيزون الثانى
-                                            </h5>
-                                            <p class="card-text">
-                                                السعر : 250ج🤑 عرض خاص !!🤯
-                                                <br>
-                                                ___
-                                                <br>
-                                                شغال سونى %100 ✅
-                                                <br>
-                                                ___
-                                                <br>
-                                                التحويل فودافون كاش ! 💱[]
-                                            </p>
-                                        </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="card">
-                                    <img src="img/products/913244366_1.png" alt="">
 
-                                    <div class="card-body">
-                                        <div class="cardcontainer">
-                                            <h5 class="card-title">
-                                                حساب عشوائي
-                                                السيزون الثالث 100% وباقى السكنات عشوائيه
-                                            </h5>
-                                            <p class="card-text">
-                                                السعر : 170ج🤑 عرض خاص !!🤯
-                                                ___
-                                                شغال سونى %100 ✅
-                                                ___
-                                                التحويل فودافون كاش ! 💱
-                                            </p>
-                                        </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-6 col-md-4 col-lg-3">
                                 <div class="card">
-                                    <img src="img/products/200le_1.png" alt="">
-
-                                    <div class="card-body">
-                                        <div class="cardcontainer">
-                                            <h5 class="card-title">
-                                                حساب عشوائي (50-150) سكن
-                                                87% نادر
-                                            </h5>
-                                            <p class="card-text">
-                                                السعر : 200ج🤑 عرض خاص !!🤯
-                                                <br>
-                                                ___
-                                                <br>
-                                                شغال سونى %100 ✅
-                                                <br>
-                                                ___
-                                                <br>
-                                                التحويل فودافون كاش ! 💱
-                                            </p>
-                                        </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="card">
-                                    <img src="img/products/100le_2.png" alt="">
+                                    <img src="img/products/100le_2.jpg" alt="">
 
                                     <div class="card-body">
                                         <div class="cardcontainer">
@@ -367,23 +307,78 @@
                                                 التحويل فودافون كاش ! 💱
                                             </p>
                                         </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <div class="container">
-                        <div class="row">
-
                             <div class="col-6 col-md-4 col-lg-3">
                                 <div class="card">
-                                    <img src="img/products/200le_1.png" alt="">
+                                    <img src="img/products/913244366_1.jpg" alt="">
+
+                                    <div class="card-body">
+                                        <div class="cardcontainer">
+                                            <h5 class="card-title">
+                                                حساب عشوائي
+                                                السيزون الثالث 100% وباقى السكنات عشوائيه
+                                            </h5>
+                                            <p class="card-text">
+                                                السعر : 170ج🤑 عرض خاص !!🤯
+                                                ___
+                                                شغال سونى %100 ✅
+                                                ___
+                                                التحويل فودافون كاش ! 💱
+                                            </p>
+                                        </div>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="card">
+                                    <img src="img/products/season2acc_1.jpg" alt="">
+
+                                    <div class="card-body">
+                                        <div class="cardcontainer">
+                                            <h5 class="card-title">
+                                                حساب عشوائي السيزون الثانى
+                                            </h5>
+                                            <p class="card-text">
+                                                السعر : 250ج🤑 عرض خاص !!🤯
+                                                <br>
+                                                ___
+                                                <br>
+                                                شغال سونى %100 ✅
+                                                <br>
+                                                ___
+                                                <br>
+                                                التحويل فودافون كاش ! 💱[]
+                                            </p>
+                                        </div>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="card">
+                                    <img src="img/products/200le_1.jpg" alt="">
 
                                     <div class="card-body">
                                         <div class="cardcontainer">
@@ -403,16 +398,116 @@
                                                 التحويل فودافون كاش ! 💱
                                             </p>
                                         </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-playstation" role="tabpanel" aria-labelledby="nav-playstation-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="card">
+                                    <img src="img/products/season2acc_1.jpg" alt="">
+
+                                    <div class="card-body">
+                                        <div class="cardcontainer">
+                                            <h5 class="card-title">
+                                                حساب عشوائي السيزون الثانى
+                                            </h5>
+                                            <p class="card-text">
+                                                السعر : 250ج🤑 عرض خاص !!🤯
+                                                <br>
+                                                ___
+                                                <br>
+                                                شغال سونى %100 ✅
+                                                <br>
+                                                ___
+                                                <br>
+                                                التحويل فودافون كاش ! 💱[]
+                                            </p>
+                                        </div>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 col-md-4 col-lg-3">
                                 <div class="card">
-                                    <img src="img/products/100le_2.png" alt="">
+                                    <img src="img/products/913244366_1.jpg" alt="">
+
+                                    <div class="card-body">
+                                        <div class="cardcontainer">
+                                            <h5 class="card-title">
+                                                حساب عشوائي
+                                                السيزون الثالث 100% وباقى السكنات عشوائيه
+                                            </h5>
+                                            <p class="card-text">
+                                                السعر : 170ج🤑 عرض خاص !!🤯
+                                                ___
+                                                شغال سونى %100 ✅
+                                                ___
+                                                التحويل فودافون كاش ! 💱
+                                            </p>
+                                        </div>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="card">
+                                    <img src="img/products/200le_1.jpg" alt="">
+
+                                    <div class="card-body">
+                                        <div class="cardcontainer">
+                                            <h5 class="card-title">
+                                                حساب عشوائي (50-150) سكن
+                                                87% نادر
+                                            </h5>
+                                            <p class="card-text">
+                                                السعر : 200ج🤑 عرض خاص !!🤯
+                                                <br>
+                                                ___
+                                                <br>
+                                                شغال سونى %100 ✅
+                                                <br>
+                                                ___
+                                                <br>
+                                                التحويل فودافون كاش ! 💱
+                                            </p>
+                                        </div>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="card">
+                                    <img src="img/products/100le_2.jpg" alt="">
 
                                     <div class="card-body">
                                         <div class="cardcontainer">
@@ -433,16 +528,91 @@
                                                 التحويل فودافون كاش ! 💱
                                             </p>
                                         </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-xbox" role="tabpanel" aria-labelledby="nav-xbox-tab">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="card">
+                                    <img src="img/products/200le_1.jpg" alt="">
+
+                                    <div class="card-body">
+                                        <div class="cardcontainer">
+                                            <h5 class="card-title">
+                                                حساب عشوائي (50-150) سكن
+                                                87% نادر
+                                            </h5>
+                                            <p class="card-text">
+                                                السعر : 200ج🤑 عرض خاص !!🤯
+                                                <br>
+                                                ___
+                                                <br>
+                                                شغال سونى %100 ✅
+                                                <br>
+                                                ___
+                                                <br>
+                                                التحويل فودافون كاش ! 💱
+                                            </p>
+                                        </div>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 col-md-4 col-lg-3">
                                 <div class="card">
-                                    <img src="img/products/913244366_1.png" alt="">
+                                    <img src="img/products/100le_2.jpg" alt="">
+
+                                    <div class="card-body">
+                                        <div class="cardcontainer">
+                                            <h5 class="card-title">
+                                                حساب عشوائي (25-100) سكن
+                                                نادر
+                                                68%
+                                            </h5>
+                                            <p class="card-text">
+                                                السعر : 100ج🤑 عرض خاص !!🤯
+                                                <br>
+                                                ___
+                                                <br>
+                                                شغال سونى %100 ✅
+                                                <br>
+                                                ___
+                                                <br>
+                                                التحويل فودافون كاش ! 💱
+                                            </p>
+                                        </div>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="card">
+                                    <img src="img/products/913244366_1.jpg" alt="">
 
                                     <div class="card-body">
                                         <div class="cardcontainer">
@@ -458,16 +628,19 @@
                                                 التحويل فودافون كاش ! 💱
                                             </p>
                                         </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 col-md-4 col-lg-3">
                                 <div class="card">
-                                    <img src="img/products/season2acc_1.png" alt="">
+                                    <img src="img/products/season2acc_1.jpg" alt="">
 
                                     <div class="card-body">
                                         <div class="cardcontainer">
@@ -486,16 +659,20 @@
                                                 التحويل فودافون كاش ! 💱[]
                                             </p>
                                         </div>
-                                        <a href="#0" class="btn btn-primary">
-                                            إضافة إلى العربة
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
+                                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                                            <a href="#0" class="btn ">
+                                                إضافة إلى العربة
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            <div class="price-t">200 EGP</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div class="reviews">
@@ -779,14 +956,14 @@
                                 <i class="fas fa-shipping-fast"></i>
                             </div>
                         </div>
-                            <div class="itemField">
-                                <h3>
-                                    سرعة الشحن
-                                </h3>
-                                <div class="description">
-                                    <p> Est qui aut sed molestias nemo! Deleniti eius iusto sunt doloribus.</p>
-                                </div>
+                        <div class="itemField">
+                            <h3>
+                                سرعة الشحن
+                            </h3>
+                            <div class="description">
+                                <p> Est qui aut sed molestias nemo! Deleniti eius iusto sunt doloribus.</p>
                             </div>
+                        </div>
                     </div>
                 </div>
 
@@ -835,7 +1012,6 @@
         <footer class="page-footer my-5 pt-5 text-muted text-center text-small">
             <p class="mb-1">&copy; lucky helmet 2021</p>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">خصوصية</a></li>
                 <li class="list-inline-item"><a href="#">شروط</a></li>
                 <li class="list-inline-item"><a href="#">الدعم</a></li>
                 <li class="list-inline-item"><a href="dmca.html">DMCA</a></li>
