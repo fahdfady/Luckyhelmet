@@ -70,3 +70,4 @@ var swiper = new Swiper('.swiper-container', {
     },
 });
 // swiperjs
+$(".outofstock").html("Hello world");
