@@ -190,6 +190,7 @@
             
             #login .banner .layer {
                 background: #1a043a94;
+                backdrop-filter: blur(3px);
             }
             
             .layer h1 {
