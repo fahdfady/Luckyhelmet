@@ -1,2 +1,8 @@
 [0108/214441.337:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [0109/163227.440:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Techno\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1db2553a-00d9-48c4-90f9-373c277c7c85: The system cannot find the path specified. (0x3)
+[0121/025237.078:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0121/025237.440:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0121/025237.453:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0121/025237.453:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0121/025237.605:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0121/025237.758:ERROR:crash_report_database_win.cc(455)] unexpected header
