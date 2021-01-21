@@ -327,7 +327,7 @@
             
             .section-container.row {
                 justify-content: flex-end;
-                margin: 20px 0px;
+                margin: 30px 0px;
             }
             
             .section-header {
@@ -361,15 +361,16 @@
                 content: "";
                 position: absolute;
                 left: 0px;
-                right: 173px;
+                right: 200px;
                 height: 1px;
                 background-color: #651f7b;
                 z-index: -5;
             }
             
             .partition-header .partition-title {
-                font-size: 16px;
+                font-size: 18px;
                 font-family: 'tajawal', sans-serif;
+                font-weight: 900;
             }
             
             .card {
