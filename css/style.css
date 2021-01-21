@@ -327,6 +327,7 @@
             
             .section-container.row {
                 justify-content: flex-end;
+                margin: 20px 0px;
             }
             
             .section-header {
