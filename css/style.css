@@ -184,6 +184,7 @@
             text-align: center;
             position: absolute;
             z-index: 20;
+            backdrop-filter: blur(2.7px);
         }
         
         #login .banner .layer {
@@ -617,7 +618,7 @@
         }
         
         .description p {
-            font-size: 14px;
+            font-size: 15px;
             color: #777;
         }
         /* Body END */
@@ -665,6 +666,10 @@
             width: unset!important;
             max-width: unset!important;
             height: 18px;
+        }
+        footer .email{
+            user-select:text;
+            padding-top: 10px;
         }
         /* footer END */
         /* Login START */
