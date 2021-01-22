@@ -333,6 +333,7 @@
             position: relative;
             padding: 0px;
             margin: 2rem 0rem;
+            flex-direction: row-reverse;
         }
         
         .section-header:before {
@@ -351,11 +352,15 @@
             font-family: 'Kelly Slab', sans-serif;
             font-weight: 600;
             background: #eee5fc;
-            padding-right: 1rem;
+            padding-left: 1rem;
+            display: flex;
+        }
+        
+        .section-header .section-title span {
+            margin-left: 5px;
         }
         
         .partition-header {
-            flex-direction: row-reverse;
             font-family: 'tajawal', sans-serif;
         }
         
@@ -369,8 +374,6 @@
             font-family: 'tajawal', sans-serif;
             font-weight: 900;
             color: #aa3ecc;
-            padding: 0px;
-            padding-left: 1rem;
         }
         
         .card {
