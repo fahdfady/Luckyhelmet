@@ -384,6 +384,10 @@
             height: unset !important;
         }
         
+        .cardcontainer {
+            padding: 8px;
+        }
+        
         .card-body {
             /* min-height: 300px; */
             padding: 0px;
@@ -667,8 +671,9 @@
             max-width: unset!important;
             height: 18px;
         }
-        footer .email{
-            user-select:text;
+        
+        footer .email {
+            user-select: text;
             padding-top: 10px;
         }
         /* footer END */
@@ -774,7 +779,7 @@
         
         .checkbox label {
             position: relative;
-            padding-left: 26px;
+            padding-right: 26px;
             color: #a662bc;
             margin-bottom: 0;
             font-weight: 600;
@@ -785,7 +790,7 @@
             content: '';
             position: absolute;
             top: 3px;
-            left: 0;
+            right: 0;
             width: 19px;
             height: 18px;
             border: 1px solid;
@@ -796,7 +801,7 @@
         
         .checkbox label:after {
             position: absolute;
-            padding-left: 3px;
+            padding-right: 3px;
             font-size: 10px;
             color: #a662bc;
         }
@@ -812,7 +817,7 @@
             content: "\f00c";
             font-weight: 900;
             color: #fff;
-            left: 2.6px;
+            right: 1px;
             top: 4.7px;
             transition: .2s all ease-in-out;
         }
@@ -875,6 +880,7 @@
         
         body#checkout {
             font-family: 'tajawal', sans-serif;
+            background: rgb(238 229 252) !important;
         }
         
         .py-5 {
