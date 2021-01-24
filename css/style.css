@@ -40,6 +40,7 @@
         body {
             background: rgb(238 229 252);
             font-family: "tajawal", sans-serif;
+            min-height: 100%;
         }
         
         body.simple-page .page-body {
@@ -63,6 +64,11 @@
         /* essentials END */
         /* nav START */
         
+        .page-container {
+            position: relative;
+            min-height: 100%;
+        }
+        
         .page-header {
             padding-bottom: 60px;
         }
@@ -81,6 +87,10 @@
         .page-header nav.scrolled {
             background: #673da6 !important;
             transition: .27s all ease-in-out
+        }
+        
+        nav a.navbar-brand.logo {
+            margin: 3px 0px;
         }
         
         nav .logo img {
@@ -237,6 +247,12 @@
         
         .page-body .nav {
             justify-content: center;
+        }
+        
+        .nav-tabs .nav-item.show .nav-link,
+        .nav-tabs .nav-link.active {
+            border-color: #daa8ff8a #dee2e6 #edd5ff8a;
+            background: #daa8ff8a;
         }
         
         a.nav-link i {
@@ -436,6 +452,8 @@
         .outofstock {
             margin-left: auto;
             width: 60%;
+            cursor: not-allowed;
+            user-select: none;
         }
         
         .card .btn:hover {
@@ -631,10 +649,22 @@
         /* Body END */
         /* footer START */
         
+        .not-footer {
+            padding-bottom: 15.5rem;
+        }
+        
         footer.page-footer {
             margin-bottom: 0px !important;
             user-select: none;
-            background: #000;
+            background: #12012b;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        
+        footer.page-footer.text-muted {
+            color: #97a5b0!important;
         }
         
         footer ul {
@@ -912,7 +942,7 @@
         }
         
         .simple-page p.text {
-            font-size: 19px;
+            font-size: 1.188rem;
         }
         /* DMCA END */
         /* license START */
@@ -1033,8 +1063,9 @@
         
         @media(max-width:600px) {
             .simple-page .text {
-                width: 80%;
+                width: 95%;
                 padding: 0px;
+                font-size: 1rem !important;
             }
             ul.license li {
                 padding: 20px 0px;

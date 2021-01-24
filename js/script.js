@@ -70,6 +70,23 @@ var swiper = new Swiper('.swiper-container', {
     },
 });
 // swiperjs
+
 $(".outofstock").html("نفذت الكمية");
 
-$(".section-header")
+// password confirmation
+
+function checkPasswordMatch() {
+    var password = $("#newPassword").val();
+    var confirmPassword = $("#confirmPassword").val();
+    if (password != confirmPassword) {
+        $("#confirmPassword").css({ "border-color": "#f00", "box-shadow": "rgb(210 10 10 / 25%) 0px 0px 0px 0.25rem" });
+        console.log("no");
+    }
+    else {
+        $("#confirmPassword").css({ "border-color": "#0f0", "box-shadow": "rgb(10 210 10 / 25%) 0px 0px 0px 0.25rem" });
+        console.log("done");
+    }
+}
+$(document).ready(function () {
+    $("body").keyup(checkPasswordMatch);
+});
