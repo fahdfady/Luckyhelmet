@@ -46,8 +46,8 @@
         
         body.simple-page .page-body {
             padding-top: 113px;
-            display: flex;
-            justify-content: center;
+            /* display: flex;
+            justify-content: center; */
         }
         
         .container {
@@ -422,7 +422,7 @@
         .ribbon {
             position: absolute;
             top: -4px;
-            Left: 7;
+            right: 7;
             background: #e48fff;
             color: #6f197e;
             display: block;
