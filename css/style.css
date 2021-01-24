@@ -15,6 +15,7 @@
         }
         
         .button {
+            background: #c822fd;
             font-size: 16px;
             font-weight: 500;
             -webkit-border-radius: 5px;
@@ -45,6 +46,8 @@
         
         body.simple-page .page-body {
             padding-top: 113px;
+            display: flex;
+            justify-content: center;
         }
         
         .container {
@@ -368,8 +371,9 @@
             font-family: 'Kelly Slab', sans-serif;
             font-weight: 600;
             background: #eee5fc;
-            padding-left: 1rem;
+            padding: 0rem 1rem;
             display: flex;
+            margin: auto;
         }
         
         .section-header .section-title span {
@@ -390,6 +394,8 @@
             font-family: 'tajawal', sans-serif;
             font-weight: 900;
             color: #aa3ecc;
+            margin: unset;
+            padding-right: 0px;
         }
         
         .card {
@@ -411,6 +417,47 @@
             /* min-height: 300px; */
             padding: 0px;
             padding-top: 1rem;
+        }
+        
+        .ribbon {
+            position: absolute;
+            top: -4px;
+            Left: 7;
+            background: #e48fff;
+            color: #6f197e;
+            display: block;
+            padding: 9px;
+            box-shadow: 1px 6px 5px -2px rgb(59 1 54);
+            font-family: 'kelly slab';
+            font-weight: 900;
+            user-select: none;
+        }
+        
+        .ribbon:after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 0 4px;
+            -webkit-transform: rotate(270deg);
+            -ms-transform: rotate(270deg);
+            transform: rotate(270deg);
+            border-color: transparent transparent transparent #ad859f;
+        }
+        
+        .ribbon:before {
+            content: '';
+            position: absolute;
+            right: -4px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 0 4px;
+            border-color: transparent transparent transparent #ad859f;
         }
         
         .card-title {
@@ -928,6 +975,10 @@
         /* Checkout END */
         /* DMCA START */
         
+        .simple-page {
+            text-align: center;
+        }
+        
         .simple-page .text,
         .simple-page h1,
         .simple-page h2,
@@ -943,6 +994,24 @@
         
         .simple-page p.text {
             font-size: 1.188rem;
+        }
+        
+        .simple-page img.bugs {
+            display: block;
+            margin: auto;
+            width: 31.25rem;
+            height: unset;
+        }
+        
+        input,
+        label,
+        textarea {
+            text-align: right;
+        }
+        
+        .form-floating>label {
+            left: unset;
+            right: 0;
         }
         /* DMCA END */
         /* license START */
@@ -970,6 +1039,64 @@
             margin: 27px 0px;
         }
         /* underM END */
+        
+        textarea#floatingReview {
+            min-height: 10rem;
+        }
+        /* test */
+        
+        .rating {
+            float: left;
+        }
+        /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+            follow these rules. Every browser that supports :checked also supports :not(), so
+            it doesn’t make the test unnecessarily selective */
+        
+        .rating:not(:checked)>input {
+            position: absolute;
+            top: -9999px;
+            clip: rect(0, 0, 0, 0);
+        }
+        
+        .rating:not(:checked)>label {
+            float: right;
+            width: 1em;
+            /* padding:0 .1em; */
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 300%;
+            /* line-height:1.2; */
+            color: #ddd;
+        }
+        
+        .rating:not(:checked)>label:before {
+            content: '★ ';
+        }
+        
+        .rating>input:checked~label {
+            color: #c822fd;
+        }
+        
+        .rating:not(:checked)>label:hover,
+        .rating:not(:checked)>label:hover~label {
+            color: #c822fd;
+        }
+        
+        .rating>input:checked+label:hover,
+        .rating>input:checked+label:hover~label,
+        .rating>input:checked~label:hover,
+        .rating>input:checked~label:hover~label,
+        .rating>label:hover~input:checked~label {
+            color: #c822fd;
+        }
+        
+        .rating>label:active {
+            position: relative;
+            top: 2px;
+            left: 2px;
+        }
+        /* test */
         /* animations START */
         
         @keyframes scroll-down {
@@ -1070,6 +1197,9 @@
             ul.license li {
                 padding: 20px 0px;
             }
+            .simple-page img.bugs {
+                width: 18.25rem;
+            }
         }
         
         @media (max-width:500px) {
@@ -1127,6 +1257,9 @@
             .price-t {
                 width: 100%;
             }
+            .simple-page img.bugs {
+                width: 15.25rem;
+            }
         }
         
         @media(max-width:300px) {
@@ -1147,6 +1280,12 @@
             a.nav-link i {
                 font-size: 1.4em;
                 padding: 4px;
+            }
+        }
+        
+        @media(max-width:280px) {
+            .simple-page img.bugs {
+                width: 11.25rem;
             }
         }
         /* Responsive END */
