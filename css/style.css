@@ -764,6 +764,10 @@
             margin-bottom: 5%;
         }
         
+        .login-container input.btnSubmit {
+            text-align: center;
+        }
+        
         .form-control {
             display: block;
             width: 100%;
