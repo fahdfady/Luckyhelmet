@@ -22,6 +22,8 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -72,7 +74,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="checkout.html" class="cart iconRound">
+                        <a href="checkout.html" class="cart iconRound ">
                             <span class="badge bg-secondary rounded-pill">3</span>
                             <i class="fas fa-shopping-cart"></i>
                         </a>
@@ -94,7 +96,7 @@
 
 
                         <div class="mouseScroll">
-                            <a href="#0" class="botn"></a>
+                            <div class="botn"></div>
                         </div>
 
                     </div>
@@ -174,8 +176,14 @@
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-3">
                                         <div class="card">
-                                            <img src="img/products/913244366_1.jpg" alt="">
+                                            <div class="image">
 
+                                                <img src="img/products/913244366_1.jpg" alt="">
+                                                <div class="wish layer">
+                                                    <i class="fas fa-heart"></i>
+                                                </div>
+
+                                            </div>
                                             <div class="card-body">
                                                 <div class="cardcontainer">
                                                     <h5 class="card-title">
@@ -193,8 +201,11 @@
                                                 <div class="btn-group card_footer" role="group"
                                                     aria-label="Basic example">
                                                     <a href="#0" class="btn ">
-                                                        إضافة إلى العربة
                                                         <i class="fas fa-cart-plus"></i>
+                                                        <input type="button" name="add_to_cart" id="10"
+                                                            style="margin-top:5px;"
+                                                            class="btn btn-success form-control add_to_cart"
+                                                            value="إضافة إلى العربة">
                                                     </a>
                                                     <div class="price-t">200 EGP</div>
                                                 </div>
@@ -548,7 +559,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-4 col-lg-3">   
+                                    <div class="col-6 col-md-4 col-lg-3">
                                         <div class="card">
                                             <img src="img/products/200le_1.jpg" alt="">
 
@@ -732,8 +743,8 @@
                                             <div class="card-body">
                                                 <div class="cardcontainer">
                                                     <span class="ribbon">
-                                                    20%
-                                                </span>
+                                                        20%
+                                                    </span>
                                                     <h5 class="card-title">
                                                         حساب عشوائي (50-150) سكن
                                                         87% نادر
@@ -865,6 +876,7 @@
                                                 <div class="btn-group card_footer" role="group"
                                                     aria-label="Basic example">
                                                     <a href="#0" class="btn ">
+                                                        input
                                                         إضافة إلى العربة
                                                         <i class="fas fa-cart-plus"></i>
                                                     </a>
@@ -1220,7 +1232,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-4 col-lg-3">   
+                                    <div class="col-6 col-md-4 col-lg-3">
                                         <div class="card">
                                             <img src="img/products/200le_1.jpg" alt="">
 
@@ -1404,8 +1416,8 @@
                                             <div class="card-body">
                                                 <div class="cardcontainer">
                                                     <span class="ribbon">
-                                                    20%
-                                                </span>
+                                                        20%
+                                                    </span>
                                                     <h5 class="card-title">
                                                         حساب عشوائي (50-150) سكن
                                                         87% نادر
@@ -1893,7 +1905,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-4 col-lg-3">   
+                                    <div class="col-6 col-md-4 col-lg-3">
                                         <div class="card">
                                             <img src="img/products/200le_1.jpg" alt="">
 
@@ -2077,8 +2089,8 @@
                                             <div class="card-body">
                                                 <div class="cardcontainer">
                                                     <span class="ribbon">
-                                                    20%
-                                                </span>
+                                                        20%
+                                                    </span>
                                                     <h5 class="card-title">
                                                         حساب عشوائي (50-150) سكن
                                                         87% نادر
@@ -2565,7 +2577,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-4 col-lg-3">   
+                                    <div class="col-6 col-md-4 col-lg-3">
                                         <div class="card">
                                             <img src="img/products/200le_1.jpg" alt="">
 
@@ -2749,8 +2761,8 @@
                                             <div class="card-body">
                                                 <div class="cardcontainer">
                                                     <span class="ribbon">
-                                                    20%
-                                                </span>
+                                                        20%
+                                                    </span>
                                                     <h5 class="card-title">
                                                         حساب عشوائي (50-150) سكن
                                                         87% نادر
@@ -3134,7 +3146,7 @@
                         مزايا المتجر
                     </h1>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="reason">
                             <div class="iconRoundWrap">
                                 <div class="iconRound">
@@ -3154,7 +3166,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="reason">
                             <div class="iconRoundWrap">
                                 <div class="iconRound">
@@ -3166,12 +3178,15 @@
                                     سعر مقابل جوده عالية للمنتج
                                 </h3>
                                 <div class="description">
-                                    <p>نتميز ب ارخص الاسعار و صدق الوصف و خصومات يومييه</p>
+                                    <p>
+                                        نتميز ب ارخص الاسعار و صدق الوصف و خصومات يومييه وطرق دفع متعددة
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+
+                    <div class="col-lg-6">
                         <div class="reason">
                             <div class="iconRoundWrap">
                                 <div class="iconRound">
@@ -3183,18 +3198,41 @@
                                     الدعم متواجد دائمًا
                                 </h3>
                                 <div class="description">
-                                    <p>في حال حدوث اي مشاكل في الحسابات الرجاء التواصل مع حساب الدعم الفني
-                                        @lucky_helmet_st.
+                                    <p>
+                                        في حال حدوث اي مشاكل في الحسابات الرجاء التواصل مع دعم الفنى نوفر لك اكثر من
+                                        طريقة للتواصل :( تيلجرام - انستجرام - فيس بوك - ديسكورد - شات مباشر بالموقع -
+                                        ميل المتجر )
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <div class="col-lg-6">
+                        <div class="reason">
+                            <div class="iconRoundWrap">
+                                <div class="iconRound">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                            </div>
+                            <div class="itemField">
+                                <h3>
+                                    امان الحساب
+                                </h3>
+                                <div class="description">
+                                    <p>
+                                        يتم فحص جميع الحسابات التى توجد فى كل العروض كل ساعة حتى نضمن لعملائنا سلامة
+                                        الحساب
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
         </div>
+
         <footer class="page-footer my-5 text-muted text-center text-small">
             <div class="py-4">
                 <p class="mb-1">&copy; lucky helmet 2021</p>
@@ -3205,16 +3243,26 @@
                 </ul>
                 <ul class="social0media">
 
-                    <li class="list-inline-item"><a href="https://www.facebook.com/LuckyHelmet0/">
+                    <li class="list-inline-item"><a href="https://www.facebook.com/LuckyHelmet0/" target="blank_">
                             <i class="fab fa-facebook-square"></i>
                         </a>
                     </li>
 
-                    <li class="list-inline-item"><a href="https://www.instagram.com/lucky_helmet_st/">
+                    <li class="list-inline-item"><a href="https://www.instagram.com/lucky_helmet_st/" target="blank_">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </li>
+
+                    <li class="list-inline-item"><a href="https://discord.gg/hnRvd5qVxp" target="blank_">
+                            <i class="fab fa-discord"></i> </a>
+                    </li>
+
+                    <li class="list-inline-item"><a href="https://t.me/luckyhelmet" target="blank_">
+                            <i class="fab fa-telegram-plane"></i> </a>
+                    </li>
+
                 </ul>
+
                 <p class="email">
                     luckyhelmet2020@gmail.com
                 </p>
