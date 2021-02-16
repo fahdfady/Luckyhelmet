@@ -23,13 +23,17 @@ function smoothScroll() {
     // }
     // requestAnimationFrame(animation);
 
-    window.scrollTo(0, 510);
+    window.scrollTo(0, 600);
 }
 var scrollButton = document.querySelector('.mouseScroll .botn');
-scrollButton.addEventListener('click', function () {
-    smoothScroll();
-});
+if (scrollButton === null) {
 
+}
+else {
+    scrollButton.addEventListener('click', function () {
+        smoothScroll();
+    });
+}
 
 // .page-header nav {
 // background: #673da6 !important;
@@ -49,7 +53,8 @@ $(function () {
         $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
 });
-// swiperjs
+
+// swiperjs START
 var swiper = new Swiper('.swiper-container', {
     slidesPerView: 'auto',
     spaceBetween: 30,
@@ -64,9 +69,37 @@ var swiper = new Swiper('.swiper-container', {
         clickable: true,
     },
 });
-// swiperjs
+// swiperjs END
+
 
 $(".outofstock").html("نفذت الكمية");
+$(".card .btn input").val("إضافة إلى العربة");
+
+// $(".card .btn input").click(
+//     function () {
+//         $("a.cart.iconRound").addClass("animate__headShake");
+//     }
+// );
+
+let cart = $("a.cart.iconRound i");
+
+
+
+$(".card .btn").click(function () {
+    
+    if ($(cart).hasClass("animate__animated") === true) {
+        $(cart).removeClass("animate__animated animate__bounce");
+    }
+    else {
+        $(cart).addClass("animate__animated animate__bounce");
+    }
+});
+
+// $(".card .btn").click(function () {
+
+//     $(cart).removeClass("animate__animated animate__bounce");
+
+// });
 
 // password confirmation
 
@@ -86,7 +119,7 @@ $(document).ready(function () {
     $("body").keyup(checkPasswordMatch);
 });
 
-// Starrr plugin (https://github.com/dobtco/starrr)
+
 var __slice = [].slice;
 
 (function ($, window) {
@@ -201,3 +234,13 @@ $(document).ready(function () {
         $('#count-existing').html(value);
     });
 });
+
+$(".wishlist .card .wish i").addClass("clicked");
+
+$(".card .wish i").click(function () {
+    $(this).toggleClass("clicked");
+    // $(".card .wish i.clicked").prop("title", "إزالة من قائمة الأماني");
+});
+
+
+$(".card .wish i").prop("title", "إضافة إلى قائمة الأماني");
