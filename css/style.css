@@ -1326,6 +1326,31 @@
                     direction: rtl;
                 }
                 
+                .modal .account .email input,
+                .modal .account .password input {
+                    text-align: left;
+                    cursor: text;
+                }
+                
+                .form-control:disabled,
+                .form-control[readonly] {
+                    background-color: #fff;
+                    opacity: 1;
+                }
+                
+                .btn-group>* {
+                    border-color: #8c40a4 !important;
+                }
+                
+                .input-group-text {
+                    background-color: #e5dafa;
+                    width: 85px;
+                    border-radius: .25rem;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                }
+                
                 .card.card-min {
                     margin-top: 50px;
                     text-align: right;
