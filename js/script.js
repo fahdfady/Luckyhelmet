@@ -25,10 +25,9 @@ function smoothScroll() {
 
     window.scrollTo(0, 600);
 }
-var scrollButton = document.querySelector('.mouseScroll .botn');
-if (scrollButton === null) {
 
-}
+var scrollButton = document.querySelector('.mouseScroll .botn');
+if (scrollButton === null);
 else {
     scrollButton.addEventListener('click', function () {
         smoothScroll();
@@ -47,12 +46,19 @@ else {
 //     });
 // });
 
+let $nav = $(".page-header nav");
+
 $(function () {
     $(document).scroll(function () {
-        var $nav = $(".page-header nav");
         $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
 });
+
+$("button.navbar-toggler").click(
+    function () {
+        $nav.addClass("scrolled");
+    }
+);
 
 // swiperjs START
 var swiper = new Swiper('.swiper-container', {
@@ -85,8 +91,8 @@ let cart = $("a.cart.iconRound i");
 
 
 
-$(".card .btn").click(function () {
-    
+$(".card .btn.addtocart").click(function () {
+
     if ($(cart).hasClass("animate__animated") === true) {
         $(cart).removeClass("animate__animated animate__bounce");
     }
@@ -244,3 +250,6 @@ $(".card .wish i").click(function () {
 
 
 $(".card .wish i").prop("title", "إضافة إلى قائمة الأماني");
+
+
+$(".modal").addClass("animate__animated animate__zoomIn animate__faster");
