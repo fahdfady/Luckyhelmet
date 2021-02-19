@@ -114,11 +114,9 @@ function checkPasswordMatch() {
     var confirmPassword = $("#confirmPassword").val();
     if (password != confirmPassword) {
         $("#confirmPassword").css({ "border-color": "#f00", "box-shadow": "rgb(210 10 10 / 25%) 0px 0px 0px 0.25rem" });
-        console.log("no");
     }
     else {
         $("#confirmPassword").css({ "border-color": "#0f0", "box-shadow": "rgb(10 210 10 / 25%) 0px 0px 0px 0.25rem" });
-        console.log("done");
     }
 }
 $(document).ready(function () {
@@ -253,3 +251,38 @@ $(".card .wish i").prop("title", "إضافة إلى قائمة الأماني");
 
 
 $(".modal").addClass("animate__animated animate__zoomIn animate__faster");
+
+
+; (function (document, window, index) {
+    var inputs = document.querySelectorAll('.inputfile');
+    Array.prototype.forEach.call(inputs, function (input) {
+        var label = input.nextElementSibling,
+            labelVal = label.innerHTML;
+
+        input.addEventListener('change', function (e) {
+            var fileName = '';
+            if (this.files && this.files.length > 1)
+                fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+            else
+                fileName = e.target.value.split('\\').pop();
+
+            if (fileName)
+                label.querySelector('span').innerHTML = fileName;
+            else
+                label.innerHTML = labelVal;
+        });
+
+        // Firefox bug fix
+        input.addEventListener('focus', function () { input.classList.add('has-focus'); });
+        input.addEventListener('blur', function () { input.classList.remove('has-focus'); });
+    });
+}(document, window, 0));
+
+let $editBtn = $('.input-group .edit-btn');
+let $editInput = $('.input-group .edit-input');
+
+$editBtn.click(function () {
+    $editInput.removeAttr("disabled");
+    $editInput.prop("placeholder", "أضف اسمك الجديد");
+});
+
