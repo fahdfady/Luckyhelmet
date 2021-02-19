@@ -1,0 +1,259 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Helmet (Store) Login</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="settings">
+    <!-- Modal -->
+    <div class="modal" id="ModalPass" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="POST">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">معلومات الحساب</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div>
+                            <div class="form-group">
+                                <input type="password" id="newPassword" class="form-control"
+                                    placeholder=" كلمة السر القديمة " value="" required>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div>
+                            <div class="form-group">
+                                <input type="password" id="newPassword" class="form-control"
+                                    placeholder=" كلمة السر الجديدة" value="" required>
+                            </div>
+
+                            <div>
+                                <div class="form-group">
+                                    <input type="password" id="newPassword" class="form-control"
+                                        placeholder="تأكيد كلمة السر الجديدة" value="" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" data-bs-dismiss="modal" />
+                        <button type="button" class="btn btn-secondary">إغلاق</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="page-container">
+        <div class="not-footer">
+            <div class="page-header">
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand logo" href="index.html">
+                            <img src="img/Logo.png" alt="Logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav mb-2 mb-md-0">
+
+                                <li class="nav-item active">
+                                    <a class="nav-link" aria-current="page" href="index.html">
+                                        <i class="fas fa-home"></i>
+                                        الرئيسية
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" aria-current="page" href="about.html">
+                                        <i class="fas fa-question"></i>
+                                        من نحن
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="license.html">
+                                        <i class="fas fa-file-signature"></i>
+                                        الشروط والأحكام
+                                    </a>
+                                </li>
+                                <li class="btn-group nav-item">
+                                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class="fas fa-user"></i>
+                                        User Name
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="wishlist.html">
+                                                <i class="fas fa-heart"></i>
+                                                قائمة الأماني
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="boughtproducts.html">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                طلبات تم شراؤها
+                                            </a></li>
+                                        <li>
+                                            <a class="dropdown-item" href="waitingproducts.html">
+                                                <i class="fas fa-cash-register"></i>
+                                                طلبات بانظار الدفع
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="usersettings.html">
+                                                <i class="fas fa-user-cog"></i>
+                                                إعدادات المستخدم
+                                            </a></li>
+
+                                        <li><a class="dropdown-item" href="signout.html">
+                                                <i class="fas fa-sign-out-alt"></i>
+                                                تسجيل الخروج
+                                            </a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="checkout.html" class="cart iconRound">
+                            <span class="badge bg-secondary rounded-pill">3</span>
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="page-body">
+
+                <div class="container mt-5">
+                    <div class="d-flex justify-content-center flex-wrap">
+
+                        <div class="profilePhoto">
+                            <img src="img/profile.jpg" alt="profile photo">
+                        </div>
+                        <div class="add-photo my-3">
+                            <input type="file" name="file" id="file" class="inputfile"
+                                data-multiple-caption="{count} files selected" multiple="" accept="image/*">
+
+                            <label for="file">
+                                <span>اختر صورة شخصية جديدة</span>
+                            </label>
+                        </div>
+
+                        <div class="input-group my-3">
+                            <input type="text" class="form-control edit-input" placeholder="اسم مستخدم قديم" disabled
+                                aria-label="Input group example" aria-describedby="btnGroupAddon">
+                            <button class="input-group-text edit-btn" id="btnGroupAddon">
+                                <i class="fas fa-pen"></i>
+                            </button>
+                        </div>
+
+
+                        <div class="input-group my-3">
+                            <input type="text" class="form-control" placeholder="***********" disabled
+                                aria-label="Input group example" aria-describedby="btnGroupAddon2">
+                            <button class="input-group-text" id="btnGroupAddon2" data-bs-toggle="modal"
+                                data-bs-target="#ModalPass">
+                                <i class="fas fa-pen"></i>
+                            </button>
+                        </div>
+
+
+                        <input type="submit" value="حفظ التغييرات" class="btn button">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer class="page-footer my-5 text-muted text-center text-small">
+            <div class="py-4">
+
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="about.html">من نحن</a></li>
+                    <li class="list-inline-item"><a href="license.html">شروط</a></li>
+                    <li class="list-inline-item"><a href="dmca.html">DMCA</a></li>
+                </ul>
+                <ul class="social0media">
+
+                    <li class="list-inline-item"><a href="https://www.facebook.com/LuckyHelmet0/" target="blank_">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                    </li>
+
+                    <li class="list-inline-item"><a href="https://www.instagram.com/lucky_helmet_st/" target="blank_">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+
+                    <li class="list-inline-item"><a href="https://discord.gg/hnRvd5qVxp" target="blank_">
+                            <i class="fab fa-discord"></i> </a>
+                    </li>
+
+                    <li class="list-inline-item"><a href="https://t.me/luckyhelmet" target="blank_">
+                            <i class="fab fa-telegram-plane"></i> </a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <ul class="list-inline payments">
+                <li class="list-inline-item">
+                    <img src="img/footer/visa_footer.png" alt="visa">
+                </li>
+                <li class="list-inline-item">
+                    <img src="img/footer/vodafonecash.png" alt="vodafonecash">
+                </li>
+                <li class="list-inline-item">
+                    <img src="img/footer/fawry-pay-english-logo-1.png" alt="fawry-pay">
+                </li>
+                <p class="my-1">&copy; lucky helmet 2021</p>
+            </ul>
+        </footer>
+
+
+    </div>
+
+
+
+
+    <!-- Jquery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Swiperjs -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- My own script -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
