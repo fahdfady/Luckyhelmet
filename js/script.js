@@ -112,6 +112,9 @@ $(".card .btn.addtocart").click(function () {
 function checkPasswordMatch() {
     var password = $("#newPassword").val();
     var confirmPassword = $("#confirmPassword").val();
+    if ($confirmPassword.val() == "" || $confirmPassword.val() == "") {
+        $("#confirmPassword").css({ "border-color": "#0f0", "box-shadow": "rgb(10 210 10 / 25%) 0px 0px 0px 0.25rem" });
+    }
     if (password != confirmPassword) {
         $("#confirmPassword").css({ "border-color": "#f00", "box-shadow": "rgb(210 10 10 / 25%) 0px 0px 0px 0.25rem" });
     }
@@ -297,15 +300,6 @@ $editBtnEmail.click(function () {
 });
 
 
+$("input.form-control").attr("oninvalid", "this.setCustomValidity('إملأ هذا الحقل رجاءًا');");
 
-const input = document.querySelector('#login input.form-control');
-
-input.addEventListener('invalid', function (event) {
-    if (event.target.validity.valueMissing) {
-        event.target.setCustomValidity('املأ هذا الحقل كاملًا رجاءً');
-    }
-})
-
-input.addEventListener('change', function (event) {
-    event.target.setCustomValidity('');
-})
+$("input.form-control").attr("onchange", "this.setCustomValidity('');");
