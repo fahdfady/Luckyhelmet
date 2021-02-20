@@ -1737,6 +1737,13 @@
                             justify-content: center;
                         }
                         /* user profile END */
+                        
+                        hr.minihr {
+                            height: 1px;
+                            padding: 0px !important;
+                            width: 50%;
+                            margin: 15px auto;
+                        }
                         /* animations START */
                         
                         @keyframes scroll-down {
