@@ -247,36 +247,36 @@ $(".card .wish i").click(function () {
 });
 
 
-$(".card .wish i").prop("title", "إضافة إلى قائمة الأماني");
+$(".card .wish i").prop("title", "إضافة إلى قائمة المفضلة");
 
 
 $(".modal").addClass("animate__animated animate__zoomIn animate__faster");
 
 
-; (function (document, window, index) {
-    var inputs = document.querySelectorAll('.inputfile');
-    Array.prototype.forEach.call(inputs, function (input) {
-        var label = input.nextElementSibling,
-            labelVal = label.innerHTML;
+// ; (function (document, window, index) {
+//     var inputs = document.querySelectorAll('.inputfile');
+//     Array.prototype.forEach.call(inputs, function (input) {
+//         var label = input.nextElementSibling,
+//             labelVal = label.innerHTML;
 
-        input.addEventListener('change', function (e) {
-            var fileName = '';
-            if (this.files && this.files.length > 1)
-                fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
-            else
-                fileName = e.target.value.split('\\').pop();
+//         input.addEventListener('change', function (e) {
+//             var fileName = '';
+//             if (this.files && this.files.length > 1)
+//                 fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+//             else
+//                 fileName = e.target.value.split('\\').pop();
 
-            if (fileName)
-                label.querySelector('span').innerHTML = fileName;
-            else
-                label.innerHTML = labelVal;
-        });
+//             if (fileName)
+//                 label.querySelector('span').innerHTML = fileName;
+//             else
+//                 label.innerHTML = labelVal;
+//         });
 
-        // Firefox bug fix
-        input.addEventListener('focus', function () { input.classList.add('has-focus'); });
-        input.addEventListener('blur', function () { input.classList.remove('has-focus'); });
-    });
-}(document, window, 0));
+//         // Firefox bug fix
+//         input.addEventListener('focus', function () { input.classList.add('has-focus'); });
+//         input.addEventListener('blur', function () { input.classList.remove('has-focus'); });
+//     });
+// }(document, window, 0));
 
 let $editBtn = $('.input-group .edit-btn');
 let $editInput = $('.input-group .edit-input');
@@ -286,3 +286,26 @@ $editBtn.click(function () {
     $editInput.prop("placeholder", "أضف اسمك الجديد");
 });
 
+
+let $editBtnEmail = $('.input-group .edit-btn-email');
+let $editInputEmail = $('.input-group .edit-input-email');
+
+$editBtnEmail.click(function () {
+    $editInputEmail.removeAttr("disabled");
+    $editInputEmail.prop("placeholder", "أَضف البريد الإلكتروني الجديد");
+    console.log("clicked");
+});
+
+
+
+const input = document.querySelector('#login input.form-control');
+
+input.addEventListener('invalid', function (event) {
+    if (event.target.validity.valueMissing) {
+        event.target.setCustomValidity('املأ هذا الحقل كاملًا رجاءً');
+    }
+})
+
+input.addEventListener('change', function (event) {
+    event.target.setCustomValidity('');
+})
