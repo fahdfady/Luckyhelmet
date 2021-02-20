@@ -1373,6 +1373,12 @@
                             border: 1px solid #651f7b;
                             user-select: text;
                             cursor: text;
+                            align-items: center;
+                            /* display: flex; */
+                        }
+                        
+                        .order-id>* {
+                            margin: 8px 0px;
                         }
                         
                         .order-id span {
