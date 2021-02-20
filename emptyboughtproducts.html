@@ -1,10 +1,13 @@
-<html>
+<html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.79.0">
 
-    <title>Lucky Helmet (Store)</title>
+    <title>Lucky Helmet (Store) checkout</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
 
@@ -14,21 +17,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
     <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
-
-    <!-- <link href="css/cheatsheet.rtl.css" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
+    <link href="css/bootstrap.rtl.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
-<body id="underM" class="simple-page">
+<body id="empty">
+
     <div class="page-container">
         <div class="not-footer">
             <div class="page-header">
+
                 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                     <div class="container-fluid">
                         <a class="navbar-brand logo" href="index.html">
@@ -75,17 +81,22 @@
                         </a>
                     </div>
                 </nav>
+
             </div>
-            <div class="page-body">
-                <img class="bugs" src="img/icons/undraw_fixing_bugs_w7gi.svg"></img>
-                <h1 class="text">
-
-                    الموقع تحت الصيانة
-
-                </h1>
-                <h2 class="text">
-                    سيتم فتح المتجر فى اقرب وقت تعالى بعد قليل
-                </h2>
+            <div class="container">
+                <div class="row g-3 py-5">
+                    <div class="col-md-5 col-lg-6 order-md-last">
+                        <div class="emptyicon text-muted">
+                            <i class="fas fa-store"></i>
+                            <h2>لم تشتري منتجات بعد</h2>
+                            <p>يمكنك الذهاب إلى الصفحة الرئيسية وشراء منتجات</p>
+                        </div>
+                        <a href="index.html" class="w-100 mt-4 btn btn-primary btn-lg confrimpayment">
+                            <i class="fas fa-home"></i>
+                            الذهاب إلى الصفحة الرئيسية
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -134,6 +145,7 @@
             </ul>
         </footer>
     </div>
+
     <!-- Jquery -->
     <script src="js/jquery.js"></script>
 

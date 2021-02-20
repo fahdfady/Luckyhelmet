@@ -60,8 +60,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-primary" data-bs-dismiss="modal" />
-                        <button type="button" class="btn btn-secondary">إغلاق</button>
+                        <input type="submit" class="btn btn-primary" value="تأكيد" />
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
                     </div>
                 </form>
             </div>
@@ -152,16 +152,15 @@
                 <div class="container mt-5">
                     <div class="d-flex justify-content-center flex-wrap">
 
-                        <div class="profilePhoto">
+                        <div class="profilePhoto image">
                             <img src="img/profile.jpg" alt="profile photo">
+                            <div class="wish layer">
+                                <label for="file" class="fas fa-pen"></label>
+                            </div>
                         </div>
                         <div class="add-photo my-3">
                             <input type="file" name="file" id="file" class="inputfile"
                                 data-multiple-caption="{count} files selected" multiple="" accept="image/*">
-
-                            <label for="file">
-                                <span>اختر صورة شخصية جديدة</span>
-                            </label>
                         </div>
 
                         <div class="input-group my-3">
@@ -182,6 +181,13 @@
                             </button>
                         </div>
 
+                        <div class="input-group my-3">
+                            <input type="text" class="form-control edit-input-email" placeholder="example@gmail.com"
+                                disabled aria-label="Input group example" aria-describedby="btnGroupAddon">
+                            <button class="input-group-text edit-btn-email" id="btnGroupAddon">
+                                <i class="fas fa-pen"></i>
+                            </button>
+                        </div>
 
                         <input type="submit" value="حفظ التغييرات" class="btn button">
                     </div>
@@ -191,7 +197,7 @@
             </div>
 
         </div>
-
+        
         <footer class="page-footer my-5 text-muted text-center text-small">
             <div class="py-4">
 
@@ -233,7 +239,7 @@
                 <li class="list-inline-item">
                     <img src="img/footer/fawry-pay-english-logo-1.png" alt="fawry-pay">
                 </li>
-                <p class="my-1">&copy; lucky helmet 2021</p>
+                <p class="my-1 mt-3 lucky0helmet">&copy; lucky helmet 2021</p>
             </ul>
         </footer>
 
