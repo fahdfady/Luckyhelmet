@@ -1928,6 +1928,14 @@
                             .card .btn:hover>i {
                                 font-size: 14px;
                             }
+                            #settings input.form-control {
+                                width: 100%;
+                                order: 10;
+                            }
+                            #settings button.input-group-text {
+                                width: 100%;
+                                order: -10;
+                            }
                         }
                         
                         @media(max-width:400px) {
