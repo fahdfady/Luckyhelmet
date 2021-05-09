@@ -1,0 +1,299 @@
+<?php 
+ob_start();
+session_start();
+include 'conect.php';
+
+if(isset($_POST['href'])){
+
+$hash=$_POST['hash'];
+}
+
+$output = "";
+
+
+                    if(isset($_POST['href'])){
+                            $query = "SELECT * FROM categories WHERE main_Categories_id=".$hash."";
+
+                        }else{
+                            $query = "SELECT * FROM categories";
+
+                        }
+
+$statement = $con->prepare($query);
+$statement->execute();
+$result1 = $statement->fetchAll();
+foreach($result1 as $rows){
+$output.='                 <div
+class="section-header d-flex justify-content-between align-items-center mb-4">
+<div class="section-title">
+<span>
+    '.$rows['name'] .'
+</span>
+</div>
+</div>';
+$Categories_id=$rows['id'];
+$query = "SELECT * FROM sub_categories WHERE Categories_id=?";
+
+$statement = $con->prepare($query);
+$statement->execute(array($Categories_id));
+$result2 = $statement->fetchAll();
+foreach($result2 as $sub){
+$output.='    <div
+class="section-header partition-header d-flex justify-content-between align-items-center mb-4">
+<div class="section-title partition-title">
+<span>
+    '.$sub['name'].'
+</span>
+</div>
+</div>';
+                        
+                             $sub_Categories_id=$sub['id'];
+                  
+
+
+                             if (isset($_POST['typeo']) ) {
+                                $typeo=$_POST['typeo'];
+                                $search=$_POST['query'];
+        $sql = "SELECT * FROM items WHERE sub_Categories_id=? AND showw=0 AND  price between '" . $typeo . "' AND '" . $search . "'  ";    
+
+                      
+                            }elseif (isset($_POST['query'])) {
+                             
+                                $search=$_POST['query'];
+                                $sql = "SELECT * FROM items WHERE  name LIKE '%$search%' AND sub_Categories_id=? AND showw=0 ";
+                            }
+
+    else{
+                                $sql = "SELECT * FROM items WHERE sub_Categories_id=? AND showw=0";
+                            }
+
+                            
+$statement = $con->prepare($sql);
+
+if($statement->execute(array($sub_Categories_id)));
+{
+$result = $statement->fetchAll(); 	
+$row = $statement->rowCount(); 	
+if($row>0){
+
+foreach($result as $row)
+{
+
+    $output.='    
+  <div class="col-6 col-md-4 col-lg-3">
+      <div class="card">    
+                            <div class="image">
+
+                                    
+                     <img src="Admin/upload/av/'.$row["image"].'" class="img-responsive" />   
+         <a id="'.$row["id"].'" class="ssss">
+                            <input type="hidden" name="quantityw" id="quantityw'.$row["id"] .'"value="1" />
+          <input type="hidden" name="imagew" id="imagew'.$row["id"].'" value="'.$row["image"].'" />
+        
+        <input type="hidden" name="namew" id="namew'.$row["id"].'" value="'.$row["name"].'" />
+        <input type="hidden" name="pricew" id="pricew'.$row["id"].'" value="'.$row["price"].'" />
+
+    
+                  <div class="wish layer">
+
+                                                             <i class="fas fa-heart ';
+    
+if(isset($_SESSION["whies"])){
+          foreach($_SESSION["whies"] as $keys => $values)
+            {
+
+
+      if($values['wish_id']==$row["id"])
+        {
+            $output.=' clicked ';
+        }
+        else{
+      
+            $output.= ' ssss ';
+        } 
+        }
+}
+    $output.= ' "  ></i>
+    </div>
+        </a>                        
+        
+                                                    </div>
+                                                  
+                        <div class="card-body">
+             
+                         <div class="cardcontainer">
+                       
+                                                
+
+                       ';
+                       
+$product_discount=$row['discount'];
+if($product_discount>0){
+$output.= ' <span class="ribbon">'.$row['discount']. '%</span> ';
+          
+
+}
+$output.='
+                    
+             <h5 class="card-title">'.$row["name"].'</h5>
+                                                <p class="card-text">'.$row["Describes"].'</p>
+                                            
+                                                <div class="platforms">
+                                                    <h5>
+                                                        التصنيفات
+                                                    </h5>
+                                                ';
+
+                                                    
+if($row['desktop']==1){
+$output.= '<i class="fas fa-desktop"></i>';
+}
+
+if($row['phone']==1){
+$output.= '<i class="fas fa-mobile-alt"></i>';
+}
+if($row['play']==1){
+$output.= '<i class="fab fa-playstation"></i>';
+}
+
+if($row['xbox']==1){
+$output.= '<i class="fab fa-xbox"></i>';
+}
+
+                                                    
+                                                
+                                                    
+                                              
+$output.= '   </div>      
+';
+$id=$row["id"];
+$stmt=$con->prepare("SELECT SUM(available) AS value_sum FROM 
+accounts  WHERE  product_id=? AND available=1");
+$stmt->execute(array($id));
+$s=$stmt->fetch();
+             
+$stmt=$con->prepare("SELECT AVG(value) FROM 
+rating  WHERE product_id=?");
+                       $stmt->bindValue('id', $row["id"] );
+$stmt->execute(array($row["id"] ));
+$avg=$stmt->fetchColumn();
+$output.='    <div class="ra">';
+if($avg >4 && $avg <= 5)
+{
+    $output.='   
+    <span class="fa fa-star readrating   checked "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    ';
+    
+}else if($avg >3){
+    $output.='   
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    ';
+}
+else if($avg >2){
+    $output.='   
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    ';
+}
+else if($avg >1){
+    $output.='   
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    ';
+}
+else if($avg >0){
+    $output.='   
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating   checked "></span>
+    ';
+}
+else{
+    $output.='   
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating    "></span>
+    <span class="fa fa-star readrating    "></span>
+    ';
+}
+
+$output.=' </div>';  
+
+
+
+
+
+            if($s['value_sum'] >0)
+{    
+
+$output.= '
+            <input type="hidden" name="quantity" id="quantity'.$row["id"] .'"value="1" />
+                          <input type="hidden" name="image" id="image'.$row["id"].'" value="'.$row["image"].'" />
+
+          <input type="hidden" name="hidden_name" id="name'.$row["id"].'" value="'.$row["name"].'" />
+            <input type="hidden" name="hidden_price" id="price'.$row["id"].'" value="'.$row["price"].'" />
+       
+      
+             <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                 <a href="#0" class="btn addtocart add_to_cart  " id="'.$row["id"].'">
+                                                    <i class="fas fa-cart-plus"></i>                         
+            <input type="button" name="add_to_cart" id="'.$row["id"].'" style="margin-top:5px;"  class="btn btn-success form-control add_to_cart" value="إضافة إلى العربة" />
+            </a>
+        <div class="price-t">'.$row["price"] .' EGP</div>
+        </div>
+      
+                                     
+                                            ';
+
+}
+
+else{
+$output.= '
+</div>
+       <div class="btn-group card_footer" role="group"
+                                                aria-label="Basic example">
+                                                <div class="outofstock">نفذت الكمية</div>
+                                                <div class="price-t">200 EGP</div>
+                                            </div>
+                                            </div> ';
+}
+$output.='    </div>
+</div>
+</div>                  
+</div>          </div>    ';         
+                         
+
+
+
+
+
+
+
+
+                        
+      
+     
+}
+
+}
+}
+}
+}
+echo $output;

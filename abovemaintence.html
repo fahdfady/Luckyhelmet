@@ -1,4 +1,20 @@
-<html lang="ar" dir="rtl">
+<?php
+    ob_start();
+    session_start();
+if(isset($_SESSION['email'])){
+    $email=$_SESSION['email'];
+    $stmt=$con->prepare("SELECT * FROM users where email=? AND status=1 ");
+    $stmt->execute(array($email));
+    if($stmt->rowCount() >0){
+        session_unset();
+        session_destroy();
+        header('location:index.php');
+        exit();    
+    }
+}
+  
+?>
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -25,14 +41,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body id="forgotpassword">
+<body id="underM" class="simple-page">
     <div class="page-container">
         <div class="not-footer">
             <div class="page-header">
                 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                     <div class="container-fluid">
                         <a class="navbar-brand logo" href="index.html">
-                            <img src="img/Logo.png" alt="Logo">
+                            <img src="img/logo.png" alt="Logo">
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
@@ -43,62 +59,112 @@
                             <ul class="navbar-nav mb-2 mb-md-0">
 
                                 <li class="nav-item active">
-                                    <a class="nav-link" aria-current="page" href="index.html">
+                                    <a class="nav-link" aria-current="page" href="index.php">
                                         <i class="fas fa-home"></i>
                                         الرئيسية
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" aria-current="page" href="about.html">
+                                    <a class="nav-link" aria-current="page" href="about.php">
                                         <i class="fas fa-question"></i>
                                         من نحن
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="license.html">
+                                    <a class="nav-link" href="license.php">
                                         <i class="fas fa-file-signature"></i>
                                         الشروط والأحكام
                                     </a>
                                 </li>
 
+                                <?php 
+                                 if(!isset($_SESSION['username'])){
+                                ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="login.html">
+                                    <a class="nav-link" href="login.php">
                                         <i class="fas fa-user"></i>
                                         تسجيل الدخول - تسجيل
                                     </a>
                                 </li>
+                                <?php 
+                                
+                                 }
+                                else{
+                                    ?>
+                                <li class="btn-group nav-item">
+                                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class="fas fa-user"></i>
+                                        <?php
+                                    echo $_SESSION['username'];
+                                    ?>
+                                    </button>
+                                    <ul class="dropdown-menu">
+
+                                        <li><a class="dropdown-item" href="boughtproducts.php">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                طلبات تم شراؤها
+                                            </a></li>
+
+                                        <li><a class="dropdown-item" href="wishlist.php">
+                                                <i class="fas fa-heart"></i>
+                                                المفضلة
+                                            </a></li>
+
+                                        <!-- <li>
+                                            <a class="dropdown-item" href="waitingproducts.php">
+                                                <i class="fas fa-cash-register"></i>
+                                                طلبات بانظار الدفع
+                                            </a>
+                                        </li> -->
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="usersettings.php">
+                                                <i class="fas fa-user-cog"></i>
+                                                إعدادات المستخدم
+                                            </a></li>
+
+                                        <li><a class="dropdown-item" href="logout.php">
+                                                <i class="fas fa-sign-out-alt"></i>
+                                                تسجيل الخروج
+                                            </a></li>
+
+                                    </ul>
+                                </li>
+                                <?php
+                                    
+                                }
+                                ?>
                             </ul>
                         </div>
-                        <a href="checkout.html" class="cart iconRound">
-                            <span class="badge bg-secondary rounded-pill">3</span>
+                        <a href="checkout.php" class="cart iconRound">
+
+                            <span class="badge bg-secondary rounded-pill"> <span class="badge"></span>
+                            </span>
                             <i class="fas fa-shopping-cart"></i>
                         </a>
+
                     </div>
+
                 </nav>
+
             </div>
             <div class="page-body">
-                <div class="col-6 m-auto">
-                    <div class="row g-3 py-5">
-                        <div class="col-md-5 col-lg-6 order-md-last">
-                            <div class="emptyicon text-muted">
-                                <i class="fas fa-lock"></i>
-                                <h2>هل نسيت كلمة المرور؟</h2>
-                                <p>
-                                    أدخل البريد الإلكتروني الذي استخدمته للتسجيل على موقعنا ، وسنرسل رابط إعادة التعيين إلى بريدك الإلكتروني.
-                                </p>
-                            </div>
-                            <a href="resetpassword.html" class="w-100 mt-4 btn btn-primary btn-lg confrimpayment">
-                                <i class="fas fa-key"></i>
-                                الذهاب إلى صفحة استرجاع كلمة السر
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <img class="bugs" src="img/icons/undraw_fixing_bugs_w7gi.svg"></img>
+                <h1 class="text">
+
+                    الموقع تحت الصيانة
+
+                </h1>
+                <h2 class="text">
+                    سيتم فتح المتجر فى اقرب وقت تعالى بعد قليل
+                </h2>
             </div>
         </div>
         <footer class="page-footer my-5 text-muted text-center text-small">
             <div class="py-4">
-
+                <p class="mb-1">&copy; lucky helmet 2021</p>
                 <ul class="list-inline">
                     <li class="list-inline-item"><a href="about.html">من نحن</a></li>
                     <li class="list-inline-item"><a href="license.html">شروط</a></li>
@@ -106,26 +172,19 @@
                 </ul>
                 <ul class="social0media">
 
-                    <li class="list-inline-item"><a href="https://www.facebook.com/LuckyHelmet0/" target="blank_">
+                    <li class="list-inline-item"><a href="https://www.facebook.com/LuckyHelmet0/">
                             <i class="fab fa-facebook-square"></i>
                         </a>
                     </li>
 
-                    <li class="list-inline-item"><a href="https://www.instagram.com/lucky_helmet_st/" target="blank_">
+                    <li class="list-inline-item"><a href="https://www.instagram.com/lucky_helmet_st/">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </li>
-
-                    <li class="list-inline-item"><a href="https://discord.gg/hnRvd5qVxp" target="blank_">
-                            <i class="fab fa-discord"></i> </a>
-                    </li>
-
-                    <li class="list-inline-item"><a href="https://t.me/luckyhelmet" target="blank_">
-                            <i class="fab fa-telegram-plane"></i> </a>
-                    </li>
-
                 </ul>
-
+                <p class="email">
+                    luckyhelmet2020@gmail.com
+                </p>
             </div>
             <ul class="list-inline payments">
                 <li class="list-inline-item">
@@ -137,7 +196,6 @@
                 <li class="list-inline-item">
                     <img src="img/footer/fawry-pay-english-logo-1.png" alt="fawry-pay">
                 </li>
-                <p class="my-1 mt-3 lucky0helmet">&copy; lucky helmet 2021</p>
             </ul>
         </footer>
 
@@ -153,6 +211,8 @@
 
     <!-- My own script -->
     <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+
 </body>
 
 </html>

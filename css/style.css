@@ -43,7 +43,8 @@
                     -moz-transition: 0.3s;
                     -o-transition: 0.3s;
                     transition: 0.3s;
-                    width: 120px;
+                    width: fit-content;
+                    padding: 0px 10px;
                     height: 35px;
                     cursor: pointer;
                     display: flex;
@@ -206,7 +207,15 @@
                 
                 .cart .badge {
                     font-size: .85em;
+                    position: absolute;
+                    top: 0px;
+                    right: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
                 }
+                
                 /* nav END */
                 /* Body START */
                 
@@ -220,10 +229,10 @@
                 
                 #login .banner {
                     background: url(../img/banners/banner2.jpg);
-                    background-position: center;
+                    background-position: 0px -190px;
                     background-size: cover;
                     background-repeat: no-repeat;
-                    background-attachment: fixed;
+                    /* background-attachment: fixed; */
                     height: 155%;
                 }
                 
@@ -392,9 +401,13 @@
                     border-color: #d169f2;
                 }
                 
+                .tab-pane .container {
+                    padding-top: 0px;
+                }
+                
                 .section-container.row {
                     justify-content: flex-end;
-                    margin: 30px 0px;
+                    margin-bottom: 30px;
                 }
                 
                 .section-header {
@@ -601,6 +614,7 @@
                     height: 41px;
                     padding: 0px;
                     text-align: center;
+                    width: auto !important;
                 }
                 
                 .card .btn i,
@@ -647,9 +661,13 @@
                     color: #f00;
                 }
                 
+                .card .btn i {
+                    font-size: 1rem !important;
+                }
+                
                 .card .btn:hover>i {
-                    font-size: 17px;
-                    transition: 0.07s all ease-in-out;
+                    font-size: 17px !important;
+                    transition: 0.07s all ease-in-out !important;
                 }
                 
                 .row {
@@ -821,6 +839,10 @@
                     position: relative;
                     box-shadow: #00000040 1px 5px 12px 0px;
                     margin: auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    align-content: center;
                 }
                 
                 .iconRound:before {
@@ -837,11 +859,11 @@
                 }
                 
                 .iconRound i {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    -webkit-transform: translate(-50%, -50%);
-                    transform: translate(-50%, -50%);
+                    /* position: absolute; */
+                    /* top: 50%; */
+                    /* left: 50%; */
+                    /* -webkit-transform: translate(-50%, -50%); */
+                    /* transform: translate(-50%, -50%); */
                     font-size: 2em;
                 }
                 
@@ -862,11 +884,11 @@
                 /* footer START */
                 
                 .not-footer {
-                    padding-bottom: 15.5rem;
+                    padding-bottom: 13.5rem;
                 }
                 
                 footer.page-footer {
-                    margin-bottom: 0px !important;
+                    margin: 0px !important;
                     user-select: none;
                     background: #12012b;
                     position: absolute;
@@ -931,7 +953,7 @@
                 }
                 
                 #login .not-footer {
-                    padding-bottom: 14.8rem;
+                    padding-bottom: 12.75rem;
                 }
                 
                 .login-container input.btnSubmit {
@@ -1014,6 +1036,10 @@
                     color: #a662bc;
                     font-weight: 600;
                     text-decoration: none;
+                }
+                
+                div#error.alert-danger {
+                    padding-right: 2rem;
                 }
                 
                 .checkbox {
@@ -1323,6 +1349,16 @@
                     text-align: left;
                 }
                 
+                #checkout li.list-group-item .text-success {
+                    width: fit-content;
+                    margin-left: auto;
+                    text-align: right;
+                }
+                
+                #checkout li.list-group-item .text-success>h6 {
+                    font-size: .8rem;
+                }
+                
                 #checkout .card.card-min .card-title img {
                     width: 90px;
                 }
@@ -1336,6 +1372,11 @@
                     background: #682084;
                     border-color: #682084;
                     transition: .14s all linear;
+                    white-space: nowrap;
+                    width: fit-content !important;
+                    margin: auto;
+                    display: block;
+                    direction: rtl;
                 }
                 
                 .confrimpayment i {
@@ -1536,6 +1577,18 @@
                     top: 2px;
                     left: 2px;
                 }
+                
+                .ra {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                    margin-top: 21px;
+                }
+                
+                .ra span.readrating {
+                    font-size: 23px;
+                }
                 /* test */
                 /* user profile START */
                 /* .user {
@@ -1578,6 +1631,10 @@
                     font-weight: 100;
                     font-family: 'bree serif', sans-serif;
                     text-transform: capitalize;
+                }
+                
+                #settings input.btn.button {
+                    margin: auto;
                 }
                 /* .joined-since.text-muted {
                     font-size: 14px;
@@ -1777,7 +1834,7 @@
                     border-radius: 1px;
                 }
                 
-                input.product-count {
+                .btn-group.add-minus-btn input.product-count {
                     text-align: center;
                     font-size: 20px;
                     width: 50%;
@@ -1785,6 +1842,7 @@
                     border: 1px solid #651f7b;
                     border-left: 0px;
                     outline: none;
+                    font-weight: 500;
                 }
                 
                 input[type="number"].product-count {
@@ -2043,7 +2101,8 @@
                     .btn-group.card_footer {
                         flex-direction: column;
                     }
-                    .card .btn {
+                    .card .btn,
+                    .outofstock {
                         border: none;
                         border-top: 1px ridge #8c40a4;
                     }
@@ -2051,7 +2110,8 @@
                         padding: 3px;
                     }
                     .card .btn,
-                    .price-t {
+                    .price-t,
+                    .outofstock {
                         width: 100%;
                         font-size: 14px;
                     }
@@ -2095,3 +2155,20 @@
                     }
                 }
                 /* Responsive END */
+                
+                .non {
+                    display: none;
+                }
+                
+                .ra .checked {
+                    color: #d169f2;
+                }
+                
+                .image .layer i,
+                .image .layer label {
+                    color: #FFF;
+                }
+                
+                .white {
+                    color: #FFF;
+                }

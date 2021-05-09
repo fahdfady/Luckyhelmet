@@ -1,0 +1,591 @@
+<?php
+
+//fetch_cart.php
+
+session_start();
+include 'conect.php';
+
+$stmt=$con->prepare("SELECT value FROM setting where id=1  ");
+$stmt->execute();
+$row=$stmt->fetch();
+if($row['value']==1){
+
+header("Location:undermaintenance.php");
+}else{ 
+$total_price = 0;
+$total_item = 0;
+if(isset($_SESSION['email'])){
+    $email=$_SESSION['email'];
+    $stmt=$con->prepare("SELECT * FROM users where email=? AND status=1 AND");
+    $stmt->execute(array($email));
+    if($stmt->rowCount() >0){
+        session_unset();
+        session_destroy();
+        header('location:index.php');
+        exit();    
+    }
+}
+  
+?>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.79.0">
+
+    <title>Lucky Helmet (Store) checkout</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/popup.css">
+
+    <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link href="css/bootstrap.rtl.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout-rtl/"> -->
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .note {
+            background: #6f34c7;
+            padding: 10px;
+            color: #FFF;
+            text-align: center;
+
+        }
+
+        .qty .count {
+            color: #000;
+            display: inline-block;
+            vertical-align: top;
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 30px;
+            padding: 0 2px;
+            min-width: 35px;
+            text-align: center;
+        }
+
+        .qty .plus {
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: top;
+            color: white;
+            width: 30px;
+            height: 30px;
+            font: 30px/1 Arial, sans-serif;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        .qty .minus {
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: top;
+            color: white;
+            width: 30px;
+            height: 30px;
+            font: 30px/1 Arial, sans-serif;
+            text-align: center;
+            border-radius: 50%;
+            background-clip: padding-box;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        .minus:hover {
+            background-color: #717fe0 !important;
+        }
+
+        .plus:hover {
+            background-color: #717fe0 !important;
+        }
+
+        /*Prevent text selection*/
+        span {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        input {
+            border: 0;
+            width: 2%;
+        }
+
+        nput::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input:disabled {
+            background-color: white;
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="../checkout/form-validation.css" rel="stylesheet">
+</head>
+
+<body class="bg-light" id="checkout" oncontextmenu="return false">
+
+    <div class="page-container">
+        <div class="not-footer">
+            <div class="page-header">
+
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand logo" href="index.html">
+                            <img src="img/logo.png" alt="Logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav mb-2 mb-md-0">
+
+                                <li class="nav-item active">
+                                    <a class="nav-link" aria-current="page" href="index.php">
+                                        <i class="fas fa-home"></i>
+                                        الرئيسية
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" aria-current="page" href="about.php">
+                                        <i class="fas fa-question"></i>
+                                        من نحن
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="license.php">
+                                        <i class="fas fa-file-signature"></i>
+                                        الشروط والأحكام
+                                    </a>
+                                </li>
+                                <?php 
+                                 if(!isset($_SESSION['username'])){
+                                ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="login.php">
+                                        <i class="fas fa-user"></i>
+                                        تسجيل الدخول - تسجيل
+                                    </a>
+                                </li>
+                                <?php 
+                                
+                                 }
+                                else{
+                                    ?>
+                                <li class="btn-group nav-item">
+                                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class="fas fa-user"></i>
+                                        <?php
+                                    echo $_SESSION['username'];
+                                    ?>
+                                    </button>
+                                    <ul class="dropdown-menu">
+
+                                        <li><a class="dropdown-item" href="boughtproducts.php">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                طلبات تم شراؤها
+                                            </a></li>
+
+                                        <li><a class="dropdown-item" href="wishlist.php">
+                                                <i class="fas fa-heart"></i>
+                                                المفضلة
+                                            </a></li>
+
+                                        <!-- <li>
+                                            <a class="dropdown-item" href="waitingproducts.php">
+                                                <i class="fas fa-cash-register"></i>
+                                                طلبات بانظار الدفع
+                                            </a>
+                                        </li> -->
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="usersettings.php">
+                                                <i class="fas fa-user-cog"></i>
+                                                إعدادات المستخدم
+                                            </a></li>
+
+                                        <li><a class="dropdown-item" href="logout.php">
+                                                <i class="fas fa-sign-out-alt"></i>
+                                                تسجيل الخروج
+                                            </a></li>
+
+                                    </ul>
+                                </li>
+                                </a>
+                                </li>
+                                <?php
+                                    
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                        <a href="checkout.php" class="cart iconRound">
+                            <span class="badge bg-secondary rounded-pill">
+                                <span class="badge"></span>
+                            </span>
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </div>
+                </nav>
+
+            </div>
+            <div class="container">
+                <main id="done">
+                    <?php                if(empty($_SESSION["shopping_carts"]))
+
+
+{
+?>
+
+                    <div class="py-5 text-center">
+                        <img class="d-block mx-auto mb-4" src="img/Logo.png" alt="">
+                        <h2> تأكيد الدفع</h2>
+                        <p class="lead">
+                            يرجى قراءة
+                            <a href="license.php">
+                                الشروط والأحكام
+                            </a>
+                            الخاصة بالموقع قبل شراء أي منتج من الموقع.
+                            <br>
+                            إكمالك في هذه الصفحة يعني بأنك قمت بقراءة
+                            <a href="license.php">
+                                الشروط والأحكام
+                            </a>
+                        </p>
+                    </div>
+                    <div class="steps-line">
+                        <div class="the-container">
+                            <div class="row no-margin checkout-steps">
+                                <div class="step-box">
+                                    <div class="step">
+                                        <div class="step-number">
+                                            1
+                                        </div>
+                                        <div class="step-title">العربة</div>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-title">&nbsp;</div>
+                                    </div>
+                                    <div class="step ">
+                                        <div class="step-number">
+                                            2
+                                        </div>
+                                        <div class="step-title">الدفع</div>
+                                    </div>
+                                </div>
+                                <div class="step-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-5 col-lg-6 order-md-last">
+                            <div class="emptyicon text-muted">
+                                <i class="far fa-plus-square"></i>
+                                <h2>العربة فارغة</h2>
+                                <p>يمكنك الذهاب إلى الصفحة الرئيسية وإضافة منتجات إلى العربة</p>
+                            </div>
+                            <a href="index.php" class="w-100 mt-4 btn btn-primary btn-lg confrimpayment">
+                                <i class="fas fa-home"></i>
+                                الذهاب إلى الصفحة الرئيسية
+                            </a>
+                        </div>
+
+                        <?php
+}
+
+else {
+ ?>
+
+                        <div class="py-5 text-center">
+                            <img class="d-block mx-auto mb-4" src="img/Logo.png" alt="">
+                            <h2> تأكيد الدفع</h2>
+                            <p class="lead">
+                                يرجى قراءة
+                                <a href="license.php">
+                                    الشروط والأحكام
+                                </a>
+                                الخاصة بالموقع قبل شراء أي منتج من الموقع.
+                                <br>
+                                إكمالك في هذه الصفحة يعني بأنك قمت بقراءة
+                                <a href="license.html">
+                                    الشروط والأحكام
+                                </a>
+                            </p>
+                        </div>
+                        <div class="steps-line">
+
+                            <div class="the-container">
+                                <div class="row no-margin checkout-steps">
+                                    <div class="step-box">
+                                        <div class="step step-active">
+                                            <div class="step-number"><i class="fas fa-check"></i></div>
+                                            <div class="step-title">العربة</div>
+                                        </div>
+                                        <div class="step">
+                                            <div class="step-title">&nbsp;</div>
+                                        </div>
+                                        <div class="step ">
+                                            <div class="step-number">
+                                                2
+                                            </div>
+                                            <div class="step-title">الدفع</div>
+                                        </div>
+                                    </div>
+                                    <div class="step-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-5 col-lg-6 order-md-last">
+                                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="text-muted">عربتك</span>
+                                    <span class="badge bg-secondary rounded-pill">3</span>
+                                </h4>
+                                <ul class="list-group mb-3 ">
+
+                                    <div id="cart_details">
+                                    </div>
+                                    <li class="list-group-item d-flex justify-content-between bg-light">
+                                        <div class="text-success col-9">
+                                            <h6 class="my-0">كوبون</h6>
+                                            <small>EXAMPLECODE</small>
+                                        </div>
+                                        <span class="text-success col-3" id="a"></span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <span>مجموع (EGP)</span>
+                                        <strong> <span class="total_price   x"></span> EGP</strong>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <span>مجموع بعد الخصم (EGP)</span>
+                                        <strong> <span id="AFTER"></span> </strong>
+                                    </li>
+                                </ul>
+                                <h2 class="note" id="no"></h2>
+                                <form class="card p-2">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="compan" name="copone"
+                                            placeholder="كوبون خصم">
+                                        <input type="hidden" id="time" value="<?php echo date(" Y-m-d"); ?>">
+                                        <button type="submit" class="btn btn-secondary" id="discount">تأكيد</button>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="diss" value="">
+                        <hr class="my-4">
+                        <?php 
+$ID=$_SESSION['ID'];
+  $stmt=$con->prepare("SELECT * FROM users where id=? AND is_valid=1");
+  $stmt->execute(array($ID));
+  if($stmt->rowCount() >0){
+ ?>
+                        <input class="w-100 ws btn btn-primary btn-lg confrimpayment" type="submit" value="تأكيد الدفع">
+                        <?php 
+  
+}else{
+    echo '<h2 class="note">برجاء الذهب الي بريد الكتروني</h2>';
+}
+
+?>
+
+                    </div>
+            </div>
+
+            <?php 
+        }
+        ?>
+            </main>
+            <footer class="page-footer my-5 text-muted text-center text-small">
+                <div class="py-4">
+
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="about.html">من نحن</a></li>
+                        <li class="list-inline-item"><a href="license.html">شروط</a></li>
+                        <li class="list-inline-item"><a href="dmca.html">DMCA</a></li>
+                    </ul>
+                    <ul class="social0media">
+
+                        <li class="list-inline-item"><a href="https://www.facebook.com/LuckyHelmet0/" target="blank_">
+                                <i class="fab fa-facebook-square"></i>
+                            </a>
+                        </li>
+
+                        <li class="list-inline-item"><a href="https://www.instagram.com/lucky_helmet_st/"
+                                target="blank_">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+
+                        <li class="list-inline-item"><a href="https://discord.gg/hnRvd5qVxp" target="blank_">
+                                <i class="fab fa-discord"></i> </a>
+                        </li>
+
+                        <li class="list-inline-item"><a href="https://t.me/luckyhelmet" target="blank_">
+                                <i class="fab fa-telegram-plane"></i> </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <ul class="list-inline payments">
+                    <li class="list-inline-item">
+                        <img src="img/footer/visa_footer.png" alt="visa">
+                    </li>
+                    <li class="list-inline-item">
+                        <img src="img/footer/vodafonecash.png" alt="vodafonecash">
+                    </li>
+                    <li class="list-inline-item">
+                        <img src="img/footer/fawry-pay-english-logo-1.png" alt="fawry-pay">
+                    </li>
+                    <p class="my-1 mt-3 lucky0helmet">&copy; lucky helmet 2021</p>
+                </ul>
+            </footer>
+        </div>
+
+        <!-- Jquery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Swiperjs -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <!-- My own script -->
+
+        <script src="js/script.js"></script>
+        <script src="js/cart.js"></script>
+        <script>
+            $(document).ready(function () {
+
+                $(document).on('click', '.ws', function () {
+                    var name = $('#compan').val();
+                    $.ajax({
+                        url: "SaveOrder.php",
+                        method: "POST",
+                        data: { name: name },
+                        success: function (data) {
+                            $("#done").html(data)
+                        }
+                    });
+
+                });
+
+            });
+<? php 
+$count = 1;
+            foreach($_SESSION["shopping_carts"] as $keys => $values)
+            {
+?>
+                    $(document).ready(function () {
+                        $('.count').prop('disabled', true);
+                        $(document).on('click', '.plus<?php echo $count; ?>', function () {
+                            var count = $('.s<?php echo $count; ?>').val(parseInt($('.s<?php echo $count; ?>').val()) + 1);
+                            var product_id = $("#product_ids<?php echo $count; ?>").val();
+                            var action = "add";
+                            var s = count.val();
+                            $.ajax({
+                                url: "updatacart.php",
+                                method: "POST",
+                                data: { product_id: product_id, s: s, action: action },
+                                success: function (data) {
+                                    $(".x").text(data);
+                                    load_cart_data();
+
+                                }
+                            });
+                        });
+                        $(document).on('click', '.minus<?php echo $count; ?>', function () {
+                            count = $('.s<?php echo $count; ?>').val(parseInt($('.s<?php echo $count; ?>').val()) - 1);
+                            if ($('.count').val() == 0) {
+                                $('.count').val(1);
+
+                            }
+                            var product_id = $("#product_ids<?php echo $count; ?>").val();
+                            var action = "reomve";
+                            var ss = count.val();
+                            $.ajax({
+                                url: "updatacart.php",
+                                method: "POST",
+                                data: { product_id: product_id, ss: ss, action: action },
+                                success: function (data) {
+                                    $(".x").text(data);
+
+                                }
+                            });
+                        });
+                    });
+	
+<? php 
+ 
+    $count++;
+
+            }
+?>
+
+// document.onkeydown = function(e) {
+//   if(event.keyCode == 123) {
+//      return false;
+//   }
+//   if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+//      return false;
+//   }
+//   if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+//      return false;
+//   }
+//   if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+//      return false;
+//   }
+//   if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+//      return false;
+//   }
+// }
+        </script>
+
+</body>
+
+</html>
+<?php 
+}
+
+?>
