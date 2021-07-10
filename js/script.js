@@ -60,26 +60,8 @@ $("button.navbar-toggler").click(
     }
 );
 
-// swiperjs START
-var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 'auto',
-    spaceBetween: 30,
-    loop: true,
-    spaceBetween: 30,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-});
-// swiperjs END
-
-
 $(".outofstock").html("نفذت الكمية");
-$(".card .btn input").val("إضافة إلى العربة");
+$(".card .addtocart input").val("إضافة إلى العربة");
 
 // $(".card .btn input").click(
 //     function () {
@@ -91,7 +73,7 @@ let cart = $("a.cart.iconRound i");
 
 
 
-$(".card .btn.addtocart").click(function () {
+$($(".card .btn.addtocart")).click(function () {
 
     if ($(cart).hasClass("animate__animated") === true) {
         $(cart).removeClass("animate__animated animate__bounce");
@@ -107,24 +89,6 @@ $(".card .btn.addtocart").click(function () {
 
 // });
 
-// password confirmation
-
-function checkPasswordMatch() {
-    var password = $("#newPassword").val();
-    var confirmPassword = $("#confirmPassword").val();
-    if ($confirmPassword.val() == "" || $confirmPassword.val() == "") {
-        $("#confirmPassword").css({ "border-color": "#0f0", "box-shadow": "rgb(10 210 10 / 25%) 0px 0px 0px 0.25rem" });
-    }
-    if (password != confirmPassword) {
-        $("#confirmPassword").css({ "border-color": "#f00", "box-shadow": "rgb(210 10 10 / 25%) 0px 0px 0px 0.25rem" });
-    }
-    else {
-        $("#confirmPassword").css({ "border-color": "#0f0", "box-shadow": "rgb(10 210 10 / 25%) 0px 0px 0px 0.25rem" });
-    }
-}
-$(document).ready(function () {
-    $("body").keyup(checkPasswordMatch);
-});
 
 
 var __slice = [].slice;
@@ -244,7 +208,7 @@ $(document).ready(function () {
 
 $(".wishlist .card .wish i").addClass("clicked");
 
-$(".card .wish i").click(function () {
+$(".wish.layer i").click(function () {
     $(this).toggleClass("clicked");
     // $(".card .wish i.clicked").prop("title", "إزالة من قائمة الأماني");
 });
@@ -303,3 +267,78 @@ $editBtnEmail.click(function () {
 $("input.form-control").attr("oninvalid", "this.setCustomValidity('إملأ هذا الحقل رجاءًا');");
 
 $("input.form-control").attr("onchange", "this.setCustomValidity('');");
+
+
+let $productCounter = $('input.product-count');
+
+$productCounter.attr("value", "1");
+$productCounter.attr("min", "1");
+
+// $(document).ready(function () {
+//     jQuery($productCounter).each(function () {
+//         var spinner = jQuery(this),
+//             btnUp = spinner.find('.btn-group.add-minus-btn .product-add'),
+//             btnDown = spinner.find('.btn-group.add-minus-btn .product-minus'),
+//             min = input.attr('min')
+
+//         btnUp.click(function () {
+//             var newVal = oldValue + 1;
+//             spinner.find("input").val(newVal);
+//             spinner.find("input").trigger("change");
+//         });
+
+//         btnDown.click(function () {
+//             var oldValue = parseFloat($productCounter.val());
+//             if (oldValue <= min) {
+//                 var newVal = oldValue;
+//             } else {
+//                 var newVal = oldValue - 1;
+//             }
+//             spinner.find("input").val(newVal);
+//             spinner.find("input").trigger("change");
+//         });
+
+//     });
+// });
+
+$("input#butlogin").click(function () {
+    $('div#error.alert-danger').delay(5000).fadeOut('slow');
+});
+
+
+
+
+// password confirmation
+
+function checkPasswordMatch() {
+    let password = $("#password");
+    let confirmPassword = $("#confirmPassword");
+
+    if ($(password).val().length < 8) {
+        $(password).css({ "border-color": "#f00", "box-shadow": "rgb(210 10 10 / 25%) 0px 0px 0px 0.25rem" });
+    }
+    if ($(password).val().length >= 8) {
+        $(password).css({ "border-color": "#0f0", "box-shadow": "rgb(10 210 10 / 25%) 0px 0px 0px 0.25rem" });
+    }
+
+    else if ($(password).val() != $(confirmPassword).val()) {
+        $(confirmPassword).css({ "border-color": "#f00", "box-shadow": "rgb(210 10 10 / 25%) 0px 0px 0px 0.25rem" });
+    }
+
+    else if ($(password).val() === $(confirmPassword).val() && $(password).val().length >= 8) {
+        $(confirmPassword).css({ "border-color": "#0f0", "box-shadow": "rgb(10 210 10 / 25%) 0px 0px 0px 0.25rem" });
+        $(password).css({ "border-color": "#0f0", "box-shadow": "rgb(10 210 10 / 25%) 0px 0px 0px 0.25rem" });
+    }
+
+    else {
+        $(confirmPassword).css({ "border-color": "#0f0", "box-shadow": "rgb(10 210 10 / 25%) 0px 0px 0px 0.25rem" });
+        $(password).css({ "border-color": "#0f0", "box-shadow": "rgb(10 210 10 / 25%) 0px 0px 0px 0.25rem" });
+    }
+
+    if ($(password).val().length === null || $(confirmPassword).val().length === null) { }
+}
+
+
+$(document).ready(function () {
+    $("login").keyup(checkPasswordMatch);
+});
