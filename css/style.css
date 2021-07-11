@@ -784,6 +784,16 @@
                     max-width: 52% !important;
                     margin: auto;
                 }
+                
+                #modalInfo .modal-body {
+                    position: relative;
+                    flex: 1 1 auto;
+                    padding: 1rem;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    flex-direction: row-reverse;
+                    justify-content: center;
+                }
                 /* Swiperjs  START */
                 
                 .slider-container {
@@ -817,6 +827,7 @@
                 }
                 
                 .swiper-container.infoSlider {
+                    width: 60%;
                     height: 100%;
                 }
                 
@@ -853,9 +864,18 @@
                 .infoSlider .swiper-button-next,
                 .infoSlider .swiper-button-prev {
                     color: #26052c;
-                    padding: 30px 20px;
+                    padding: 0px;
                     background: rgb(238 229 252);
                     border-radius: 12px;
+                }
+                
+                .swiper-pagination-bullet {
+                    width: 6px;
+                    height: 6px;
+                    display: inline-block;
+                    border-radius: 50%;
+                    background: #000;
+                    opacity: .2;
                 }
                 
                 .infoSlider .swiper-pagination-bullet-active {
@@ -865,7 +885,7 @@
                 
                 .infoSlider .swiper-button-next:after,
                 .infoSlider .swiper-button-prev:after {
-                    font-size: 40px;
+                    font-size: 20px;
                 }
                 
                 .infoSlider.swiper-container-horizontal>.swiper-pagination-bullets,
@@ -875,7 +895,7 @@
                     /* left: 0; */
                     width: fit-content;
                     background: #eee5fc;
-                    padding: 3px 8px;
+                    padding: 3px 5px;
                     border-radius: 10px;
                     margin: auto;
                     display: block;
