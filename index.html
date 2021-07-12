@@ -41,10 +41,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="swiper-container infoSlider">
+                    <div class="swiper-container infoSlider"> <span class="ribbon">
+                            متوفر : 22
+                        </span>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <img src="img/products/100le_2.jpg">
+
                             </div>
                             <div class="swiper-slide">
                                 <img src="img/products/100le_2.jpg">
@@ -86,6 +89,18 @@
                             <i class="fas fa-mobile-alt"></i>
                             <i class="fab fa-playstation"></i>
                             <i class="fab fa-xbox"></i>
+                        </div>
+                    </div>
+                    <div class="card buttons">
+                        <div class="btn-group card_footer" role="group" aria-label="Basic example">
+                            <a href="#0" class="btn addtocart">
+                                <i class="fas fa-cart-plus"></i>
+                                <input type="button" name="add_to_cart" id="10" style="margin-top:5px;"
+                                    class="btn btn-success form-control add_to_cart" value="إضافة إلى العربة"
+                                    oninvalid="this.setCustomValidity('إملأ هذا الحقل رجاءًا');"
+                                    onchange="this.setCustomValidity('');">
+                            </a>
+                            <div class="price-t">200 EGP</div>
                         </div>
                     </div>
                 </div>
@@ -143,16 +158,30 @@
                                 <li class="nav-item">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="img/icons/egypt.svg" alt="egypt">
-                                        EGP
+                                                <img src="img/icons/egypt.svg" alt="egypt">
+                                                EGP
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+
+                                        <li>
+                                            <a class="dropdown-item" href="#0">
+                                                <img src="img/icons/united-states.svg" alt="United-States-dollar">
+                                                USD
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#0">
+                                                <img src="img/icons/european-union.svg" alt="Euro">
+                                                EUR
+                                            </a>
+                                        </li>
                                         <li>
                                             <a class="dropdown-item" href="#0">
                                                 <img src="img/icons/saudi-arabia.svg" alt="saudi-arabia">
-                                                SUD 
+                                                SAR
                                             </a>
                                         </li>
+
                                     </ul>
                                 </li>
                             </ul>
@@ -362,13 +391,7 @@
                                                             style="margin-top:5px;" class="btn" value="وصف المنتج">
                                                     </a>
 
-                                                    <a href="#0" class="btn addtocart">
-                                                        <i class="fas fa-cart-plus"></i>
-                                                        <input type="button" name="add_to_cart" id="10"
-                                                            style="margin-top:5px;"
-                                                            class="btn btn-success form-control add_to_cart"
-                                                            value="إضافة إلى العربة">
-                                                    </a>
+                                                    <div class="outofstock"></div>
                                                     <div class="price-t">200 EGP</div>
                                                 </div>
                                             </div>
@@ -391,7 +414,8 @@
                                                         حساب عشوائي السيزون الثانى
 
                                                     </h5>
-                                                    <p class="card-text">
+
+                                                    <!-- <p class="card-text">
                                                         السعر : 250ج🤑 عرض خاص !!🤯
                                                         <br>
                                                         ___
@@ -401,7 +425,7 @@
                                                         ___
                                                         <br>
                                                         التحويل فودافون كاش ! 💱[]
-                                                    </p>
+                                                    </p> -->
 
                                                     <div class="platforms">
                                                         <h5>
@@ -413,8 +437,18 @@
                                                         <i class="fab fa-xbox"></i>
                                                     </div>
                                                 </div>
+
+
                                                 <div class="btn-group card_footer" role="group"
                                                     aria-label="Basic example">
+
+                                                    <a href="#0" class="btn details" data-bs-toggle="modal"
+                                                        data-bs-target="#modalInfo">
+                                                        <i class="fas fa-info"></i>
+                                                        <input type="button" name="details" id="10"
+                                                            style="margin-top:5px;" class="btn" value="وصف المنتج">
+                                                    </a>
+
                                                     <a href="#0" class="btn addtocart">
                                                         <i class="fas fa-cart-plus"></i>
                                                         <input type="button" name="add_to_cart" id="10"
@@ -422,6 +456,7 @@
                                                             class="btn btn-success form-control add_to_cart"
                                                             value="إضافة إلى العربة">
                                                     </a>
+
                                                     <div class="price-t">200 EGP</div>
                                                 </div>
                                             </div>
@@ -3508,8 +3543,13 @@
                 <li class="list-inline-item">
                     <img src="img/footer/fawry-pay-english-logo-1.png" alt="fawry-pay">
                 </li>
-                <p class="my-1 mt-3 lucky0helmet">&copy; lucky helmet 2021</p>
+                <div class="mt-3">Icons made by <a href="https://www.flaticon.com/authors/roundicons"
+                        title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/"
+                        title="Flaticon">www.flaticon.com</a></div>
+                <p class="my-1 lucky0helmet">&copy; lucky helmet 2021</p>
             </ul>
+
+
         </footer>
 
 
