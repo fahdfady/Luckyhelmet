@@ -3,6 +3,11 @@
                 * {
                     padding: 0px;
                     margin: 0px;
+                    transition-property: linear;
+                }
+                
+                i {
+                    transition: none !important;
                 }
                 
                 a {
@@ -412,6 +417,7 @@
                     transform: translateY(0px);
                     -webkit-transition: .07s ease all;
                     transition: .07s ease all;
+                    left: unset;
                 }
                 
                 a.dropdown-toggle,
@@ -435,6 +441,7 @@
                     height: 55px;
                     font-size: 11px;
                     text-align: initial !important;
+                    transition-duration: .2s;
                 }
                 
                 a.cart.iconRound:before {
@@ -443,7 +450,10 @@
                 
                 a.cart.iconRound:hover {
                     color: #a50ed7;
-                    transition: .2s all ease-in-out;
+                }
+                
+                a.cart.iconRound i {
+                    transition: none !important;
                 }
                 
                 .badge {
@@ -832,7 +842,7 @@
                 }
                 
                 .card .btn-group.card_footer .price-t {
-                    width: 34%;
+                    width: 37%;
                     font-family: 'kelly slab', sans-serif;
                     letter-spacing: 0.6px;
                 }
@@ -898,7 +908,7 @@
                 }
                 
                 .outofstock {
-                    margin-left: auto;
+                    /* margin-left: auto; */
                     width: 60% !important;
                     cursor: not-allowed;
                     user-select: none;
@@ -1043,15 +1053,27 @@
                     align-items: center;
                 }
                 
-                .infoSlider .ribbon {
-                    top: 0px;
-                    right: 0px;
-                    z-index: 20;
-                    box-shadow: -5px 10px 8px -2px rgb(59 1 54 / 70%);
+                #modalInfo .modal-ribbon {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
                 }
                 
-                .infoSlider .ribbon:after,
-                .infoSlider .ribbon:before {
+                #modalInfo .ribbon {
+                    position: static;
+                    z-index: 20;
+                    box-shadow: 0px 11px 11px 0px rgb(59 1 54 / 49%);
+                    display: block;
+                    width: 22%;
+                    text-align: center;
+                    /* margin: auto; */
+                    border-radius: 5px;
+                }
+                
+                #modalInfo .ribbon:after,
+                #modalInfo .ribbon:before {
                     content: none;
                     display: none
                 }
@@ -2334,10 +2356,8 @@
                 /* Responsive START */
                 
                 @media(max-width:1200px) {
-                    .card .btn,
-                    .price-t,
-                    .outofstock {
-                        font-size: 13px;
+                    .btn-group.card_footer * {
+                        font-size: 11px !important;
                     }
                 }
                 
@@ -2394,9 +2414,6 @@
                     #modalInfo .modal-body>* {
                         margin: 2px 0px !important;
                     }
-                    .btn-group.card_footer>* {
-                        width: 100% !important;
-                    }
                     .tab-content .card img {
                         width: 100%;
                         height: unset;
@@ -2417,7 +2434,7 @@
                             font-size: 16px;
                             } */
                     .col-6.col-md-4.col-lg-3 {
-                        padding: 5px;
+                        padding: 5px 2px;
                     }
                     a.cart.iconRound {
                         width: 50px;
@@ -2436,6 +2453,11 @@
                     .card-min .btn-group .btn i {
                         padding: 9px;
                     }
+                    #modalInfo .modal-dialog {
+                        max-width: 75% !important;
+                        height: unset;
+                        margin: auto;
+                    }
                     #modalInfo .modal-info {
                         width: 100%;
                     }
@@ -2453,11 +2475,15 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        text-align: center;
+                    }
+                    .btn-group.card_footer>.details {
+                        width: 100% !important;
                     }
                     .btn-group .addtocart,
                     .btn-group .outofstock {
                         border: none;
-                        border-top: 1px solid;
+                        border-left: 1px solid;
                     }
                 }
                 
