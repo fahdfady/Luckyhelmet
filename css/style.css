@@ -1072,9 +1072,11 @@
                     /* margin: auto; */
                     border-radius: 5px;
                 }
+                
                 #modalInfo .ribbon i {
                     font-size: 20px;
                 }
+                
                 #modalInfo .ribbon:after,
                 #modalInfo .ribbon:before {
                     content: none;
@@ -2488,6 +2490,9 @@
                         border: none;
                         border-left: 1px solid;
                     }
+                    #modalInfo .ribbon {
+                        width: 40%;
+                    }
                 }
                 
                 @media(max-width:600px) {
@@ -2519,6 +2524,13 @@
                     .swiper-pagination-bullet {
                         width: 5px;
                         height: 5px;
+                    }
+                    #modalInfo .ribbon {
+                        width: 60%;
+                        font-size: 12px;
+                    }
+                    #modalInfo .ribbon i {
+                        font-size: 14px;
                     }
                 }
                 
@@ -2616,6 +2628,8 @@
                         /* border-top: none; */
                         margin: auto;
                     }
+                    #modalInfo .ribbon {
+                        width: 70%;
                 }
                 
                 @media(max-width:300px) {
