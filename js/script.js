@@ -32,7 +32,7 @@ function smoothScroll() {
     //     var runAnime = ease(timeElapsed, startPosition, targetPosition, duration);
     //     window.scrollTo(0, runAnime);
     //     if (timeElapsed < duration) {
-    //         requestAnimationFrame(animation);
+    //         requestAnimationFrame(animation);a
     //     }
     // }
     // requestAnimationFrame(animation);
@@ -319,7 +319,7 @@ $("input#butlogin").click(function () {
     $('div#error.alert-danger').delay(5000).fadeOut('slow');
 });
 
-
+// $(".disabled-payment input[type=radio]").prop("disabled");
 
 
 // password confirmation
