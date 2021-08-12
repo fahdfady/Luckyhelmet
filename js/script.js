@@ -60,17 +60,18 @@ else {
 //     });
 // });
 
-let $nav = $(".page-header nav");
+let $nav = $(".page-header nav.mainnav");
 
 $(function () {
     $(document).scroll(function () {
-        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+        $nav.toggleClass('scrolled fixed-top', $(this).scrollTop() > $nav.height());
     });
 });
 
 $("button.navbar-toggler").click(
     function () {
         $nav.addClass("scrolled");
+        $nav.addClass("fixed-top");
     }
 );
 
