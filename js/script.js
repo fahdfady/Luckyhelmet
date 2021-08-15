@@ -60,18 +60,23 @@ else {
 //     });
 // });
 
-let $nav = $(".page-header nav.mainnav");
+let $nav = $(".page-header nav");
+let $overlay = $(".overlay");
 
 $(function () {
     $(document).scroll(function () {
-        $nav.toggleClass('scrolled fixed-top', $(this).scrollTop() > $nav.height());
+        $overlay.toggleClass('overlay-hidden', $(this).scrollTop() >  $(".page-header").height()*2);
+    });
+});
+$(function () {
+    $(document).scroll(function () {
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
 });
 
 $("button.navbar-toggler").click(
     function () {
         $nav.addClass("scrolled");
-        $nav.addClass("fixed-top");
     }
 );
 
